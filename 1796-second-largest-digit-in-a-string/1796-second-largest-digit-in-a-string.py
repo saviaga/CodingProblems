@@ -16,3 +16,4 @@ class Solution(object):
                 elif elem!=max_num and elem > second_max:
                     second_max = elem
         return second_max
+    #time complexity O(n)
