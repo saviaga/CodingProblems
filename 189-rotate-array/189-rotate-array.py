@@ -14,4 +14,7 @@ class Solution(object):
         
         for i in range(len(nums)):
             nums[i] = nums2[i]
-        return nums            
+        return nums 
+    
+    #time complexity O(n)
+    #space complecity O(n)
