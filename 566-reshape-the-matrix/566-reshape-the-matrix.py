@@ -11,9 +11,11 @@ class Solution(object):
 
         new_rows =0
         new_cols = 0
-        
+    
         new_elem = [[ 0 for y in range( c ) ]
-             for x in range( r )] 
+                    for x in range( r )]
+        print(new_elem)
+        
         
         for row in range(len(mat)):
             for col in range(len(mat[0])):
