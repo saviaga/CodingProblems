@@ -12,18 +12,16 @@ class Solution(object):
         """
         dummy=ListNode(0,head)
         
-        first = head 
-        num_elem = 0
-        while first:
-            num_elem+=1
-            first = first.next
+        fast = dummy 
+        slow = dummy
+        # Advances first pointer so that the gap between first and second is n nodes apart
+        for i in range(n+1): 
+            fast = fast.next
         
-        num_elem -=n
-        first = dummy
-        while num_elem > 0:
-            num_elem-=1
-            first = first.next
-            
-        first.next = first.next.next
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        
+        slow.next = slow.next.next  
         return dummy.next
         
