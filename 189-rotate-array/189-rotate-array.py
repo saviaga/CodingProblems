@@ -5,16 +5,13 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        k = k % len(nums)
+        size = len(nums)
+        res = [0]*size
+        for i in range(size):
+            res[(i + k)% size] = nums[i]
         
-        nums2 = [0]*len(nums)
-        for i in range(len(nums)):
-            nums2[(i+k)%len(nums)] = nums[i]
+        nums[:] = res
         
-        
-        for i in range(len(nums)):
-            nums[i] = nums2[i]
-        return nums 
     
     #time complexity O(n)
     #space complecity O(n)
