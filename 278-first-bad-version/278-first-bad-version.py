@@ -17,5 +17,5 @@ class Solution(object):
                 end = middle
             else:
                 start = middle + 1
-        return start
+        return end
         
