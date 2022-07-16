@@ -14,11 +14,10 @@ class Solution(object):
                 start+=1
             while start < end and not s[end].isalnum():               
                 end-=1
-            if s[start].lower()==s[end].lower(): 
-                start+=1
-                end-=1
-            else:
+            if s[start].lower()!=s[end].lower():
                 return False
+            start+=1
+            end-=1
         return True
                 
         
