@@ -10,10 +10,12 @@ class Solution(object):
         
         while start < end:
             
-            while start < end and not s[start].isalnum():                
+            if not s[start].isalnum():                
                 start+=1
-            while start < end and not s[end].isalnum():               
+                continue
+            if not s[end].isalnum():               
                 end-=1
+                continue
             if s[start].lower()!=s[end].lower():
                 return False
             start+=1
