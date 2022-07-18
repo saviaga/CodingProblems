@@ -14,12 +14,12 @@ class Solution(object):
         end = n
         
         while start < end:
-            middle = start + (end-start)//2
-            
-            if not isBadVersion(middle):
-                start = middle + 1
+            middle = start + (end-start)//2         
+            if not isBadVersion(middle):    
+                start = middle + 1                
             else:
-                end = middle 
+                 end = middle
         return start
-                
+    
+
                 
