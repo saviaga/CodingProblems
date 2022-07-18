@@ -10,18 +10,18 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        def preorderTraversalHelper(root):
-            if root == None:
-                return
-            
-            self.ans.append(root.val)
-            preorderTraversalHelper(root.left)
-            preorderTraversalHelper(root.right)
+        if root == None:
+            return
         
+        res = []
+        nodes = [root]
         
-        
-        self.ans = []
-        preorderTraversalHelper(root)
-        return self.ans
-        
-        
+        while nodes:
+            current = nodes.pop()
+            res.append(current.val)
+            if current.right:
+                nodes.append(current.right)
+            if current.left:
+                nodes.append(current.left)
+        return res
+    
