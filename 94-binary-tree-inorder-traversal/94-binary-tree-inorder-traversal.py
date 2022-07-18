@@ -14,9 +14,14 @@ class Solution(object):
         if root == None:
             return
         
-        res = []
+        if root == None:
+            return
+        
         nodes = []
+        res = []
+        
         current = root
+        
         while current:
             nodes.append(current)
             current = current.left
