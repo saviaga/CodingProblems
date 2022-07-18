@@ -11,19 +11,18 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        def inorderTraversalHelper(root):
-            if root == None:
-                return
-            inorderTraversalHelper(root.left)
-            self.ans.append(root.val)
-            inorderTraversalHelper(root.right)
+        if root == None:
+            return
         
-        
-        
-        self.ans = []
-        inorderTraversalHelper(root)
-        return self.ans
-        
-        
-        
-        
+        res = []
+        nodes = []
+        current = root
+        while current:
+            nodes.append(current)
+            current = current.left
+            while current == None and nodes:
+                current = nodes.pop()
+                res.append(current.val)
+                current = current.right
+        return res
+            
