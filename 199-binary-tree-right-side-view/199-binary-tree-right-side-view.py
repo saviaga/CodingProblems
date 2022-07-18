@@ -27,10 +27,7 @@ class Solution(object):
                     node_dequeue.append(current.left)
                 if current.right:
                     node_dequeue.append(current.right)
-            res.append(level)
-        for elem in res:
-            right_side.append(elem[-1])
-        return right_side
-            
+            res.append(level[-1])
+        return res
         
         
