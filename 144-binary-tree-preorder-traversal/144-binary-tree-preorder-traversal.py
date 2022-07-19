@@ -13,7 +13,7 @@ class Solution(object):
         if root == None:
             return
         
-        res = []
+        res=[] 
         nodes = [root]
         
         while nodes:
@@ -24,4 +24,4 @@ class Solution(object):
             if current.left:
                 nodes.append(current.left)
         return res
-    
+        
