@@ -11,13 +11,15 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if root == None:
-            return 
+            return
+        
         res = []
+        
         nodes = collections.deque([root])
         
         while nodes:
             level = []
-            for _ in range(len(nodes)):
+            for _i in range(len(nodes)):
                 current = nodes.popleft()
                 level.append(current.val)
                 if current.left:
