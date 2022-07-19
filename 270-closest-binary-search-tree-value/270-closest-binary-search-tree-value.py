@@ -13,7 +13,8 @@ class Solution(object):
         """
         closest = root.val
         while root:
-            closest = min(root.val, closest, key = lambda x: abs(target - x))
+            if abs(root.val - target) < abs(closest - target):
+                closest = root.val
             if target < root.val:
                 root = root.left  
             else:
