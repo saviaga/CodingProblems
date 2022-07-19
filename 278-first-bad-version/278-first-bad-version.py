@@ -14,8 +14,7 @@ class Solution(object):
         end = n
         
         while start <end:
-            middle = start + (end-start)//2  
-            
+            middle = start + (end-start)//2              
             if  isBadVersion(middle):
                 end = middle
             else:
