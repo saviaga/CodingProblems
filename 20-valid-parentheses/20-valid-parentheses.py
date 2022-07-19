@@ -9,11 +9,9 @@ class Solution(object):
         stack = []
         for elem in s:
                 if elem in bracket_map:
-                    if stack:
+                    if stack and stack[-1] == bracket_map[elem] :
                         top = stack.pop()
                     else:
-                        top = '#'
-                    if bracket_map[elem]!=top:
                         return False
                 else:
                     stack.append(elem)
