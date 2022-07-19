@@ -15,21 +15,15 @@ class Solution(object):
             if root == None:
                 return
             
-            self.ans.append(root.val)
+           
+            if abs(root.val-target) < self.min_dif:
+                self.min_dif = abs(root.val-target)
+                self.value = root.val
             closestValueHelper(root.right)
             closestValueHelper(root.left)
         
-        
-        
-        
-        self.ans = []
-        min_dif = float('inf')
-        value = 0
+        self.min_dif = float('inf')
+        self.value = 0
         closestValueHelper(root)
-        for elem in self.ans:
-            if abs(elem-target) < min_dif:
-                    min_dif = abs(elem-target)
-                    value = elem
-            
-        return value
+        return self.value
         
