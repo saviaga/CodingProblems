@@ -10,7 +10,7 @@ class Solution(object):
         for elem in s:
                 if elem in bracket_map:
                     if stack and stack[-1] == bracket_map[elem] :
-                        top = stack.pop()
+                        stack.pop()
                     else:
                         return False
                 else:
