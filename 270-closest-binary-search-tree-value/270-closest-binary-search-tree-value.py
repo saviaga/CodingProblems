@@ -11,19 +11,12 @@ class Solution(object):
         :type target: float
         :rtype: int
         """
-        def closestValueHelper(root):
-            if root == None:
-                return
-            
-           
-            if abs(root.val-target) < self.min_dif:
-                self.min_dif = abs(root.val-target)
-                self.value = root.val
-            closestValueHelper(root.right)
-            closestValueHelper(root.left)
-        
-        self.min_dif = float('inf')
-        self.value = 0
-        closestValueHelper(root)
-        return self.value
+        closest = root.val
+        while root:
+            closest = min(root.val, closest, key = lambda x: abs(target - x))
+            if target < root.val:
+                root = root.left  
+            else:
+                root = root.right
+        return closest
         
