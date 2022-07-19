@@ -10,26 +10,17 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        
-        if root == None:
-            return
-        nodes = [(root,False)]
-        res = []
-        
-        while nodes:
-            current,visited = nodes.pop()
-            if visited:
-                res.append(current.val)
-                
-            else:
-                nodes.append([current,True])
-                if current.right:
-                    nodes.append([current.right,False])
-                if current.left:
-                    nodes.append([current.left,False])
-        return res
-                    
-                    
+        def postorderTraversalHelper(root):
+            if root == None:
+                return
+            
+           
+            postorderTraversalHelper(root.left)
+            postorderTraversalHelper(root.right)
+            self.ans.append(root.val)
+            
             
         
-        
+        self.ans = []
+        postorderTraversalHelper(root)
+        return self.ans
