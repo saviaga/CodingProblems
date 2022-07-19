@@ -10,24 +10,24 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        
         if root == None:
             return
         
         res = []
-        right_side = []
-        node_dequeue =collections.deque([root])
+        nodes = collections.deque([root])
         
-        while node_dequeue:
+        while nodes:
             level = []
-            for _ in range(len(node_dequeue)):
-                current = node_dequeue.popleft()
-                level.append(current.val)
-                if current.left:
-                    node_dequeue.append(current.left)
+            first = False
+            for _ in range(len(nodes)):
+                current = nodes.popleft()
+                if not first:
+                    res.append(current.val)
+                    first = True
+                
                 if current.right:
-                    node_dequeue.append(current.right)
-            res.append(level[-1])
+                    nodes.append(current.right)
+                if current.left:
+                    nodes.append(current.left)
+            
         return res
-        
-        
