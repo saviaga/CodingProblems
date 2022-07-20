@@ -13,18 +13,19 @@ class Solution(object):
         if root == None:
             return
         
+        queue = collections.deque([root])
         res = []
         
-        nodes = collections.deque([root])
-        
-        while nodes:
+        while queue:
             level = []
-            for _i in range(len(nodes)):
-                current = nodes.popleft()
+            for _ in range(len(queue)):
+                current = queue.popleft()
                 level.append(current.val)
                 if current.left:
-                    nodes.append(current.left)
+                    queue.append(current.left)
                 if current.right:
-                    nodes.append(current.right)
+                    queue.append(current.right)
+            
             res.append(level)
         return res
+                
