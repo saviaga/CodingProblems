@@ -16,16 +16,19 @@ class Solution(object):
         queue = collections.deque([root])
         res = []
         
-        
+       
         while queue:
             level = []
             for _ in range(len(queue)):
                 current = queue.popleft()
                 level.append(current.val)
+                
                 if current.left:
                     queue.append(current.left)
                 if current.right:
                     queue.append(current.right)
+                
+                
             res.append(max(level))
         return res
                            
