@@ -13,21 +13,21 @@ class Solution(object):
         if root == None:
             return
         
+        queue = collections.deque([root])
         res = []
-        nodes = collections.deque([root])
         
-        while nodes:
-            level = []
-            first = False
-            for _ in range(len(nodes)):
-                current = nodes.popleft()
-                if not first:
+        
+        while queue:
+           
+            done = False
+            for _ in range(len(queue)):
+                current = queue.popleft()
+                if not done:
                     res.append(current.val)
-                    first = True
-                
+                    done = True
                 if current.right:
-                    nodes.append(current.right)
+                    queue.append(current.right)
                 if current.left:
-                    nodes.append(current.left)
+                    queue.append(current.left)
             
         return res
