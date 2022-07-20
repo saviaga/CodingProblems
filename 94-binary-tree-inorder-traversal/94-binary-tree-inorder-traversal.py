@@ -10,24 +10,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        
-        if root == None:
-            return
-        
-        if root == None:
-            return
-        
-        nodes = []
+        current = root
+        stack = []
         res = []
         
-        current = root
-        
         while current:
-            nodes.append(current)
+            stack.append(current)
             current = current.left
-            while current == None and nodes:
-                current = nodes.pop()
+            while current == None and stack:
+                current=stack.pop()
                 res.append(current.val)
-                current = current.right
+                current= current.right
         return res
-            
