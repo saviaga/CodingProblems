@@ -21,9 +21,13 @@ class Solution(object):
             else:
                 dict_sum[cs] = 1
 
-               
-        print(dict_sum)
         return count
+    
+    #Time complexity : O(n)O(n). The entire numsnums array is traversed only once.
+
+#Space complexity : O(n)O(n). Hashmap mapmap can contain up to nn distinct entries in the worst case.
+
+
                 
                 
             
