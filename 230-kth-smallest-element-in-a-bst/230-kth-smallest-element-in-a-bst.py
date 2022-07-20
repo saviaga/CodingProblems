@@ -22,10 +22,9 @@ class Solution(object):
             
             while current == None and stack:
                 current = stack.pop()
-                if cont >= k-1:   
+                k-=1
+                if not k: 
                     return current.val
-                cont+=1
-                
                 current = current.right
 
         
