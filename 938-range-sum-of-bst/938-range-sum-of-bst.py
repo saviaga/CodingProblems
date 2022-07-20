@@ -12,26 +12,18 @@ class Solution(object):
         :type high: int
         :rtype: int
         """
-        if root == None:
-            return
         
-        current = root
-        nodes = []
-
-        sum_val = 0
-        while current:
-            nodes.append(current)
-            current = current.left
+        nodes = [root]
+        res = 0
+        
+        while nodes:
+            current = nodes.pop()
+            if current.val >= low and current.val <= high:
+                res+=current.val
+            if current.right:
+                nodes.append(current.right)
+            if current.left:
+                nodes.append(current.left)
+        return res
             
-            while current == None and nodes:
-                current = nodes.pop()
-               
-                if current.val >= low  and current.val<= high:
-
-                    sum_val+=current.val
-                current = current.right
-                
-        return sum_val 
-            
-            
-            
+        
