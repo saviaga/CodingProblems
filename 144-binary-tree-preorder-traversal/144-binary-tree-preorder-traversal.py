@@ -13,15 +13,15 @@ class Solution(object):
         if root == None:
             return
         
-        res=[] 
-        nodes = [root]
-        
-        while nodes:
-            current = nodes.pop()
+        stack = [root]
+        res = []
+
+        while stack:
+            current = stack.pop()
             res.append(current.val)
             if current.right:
-                nodes.append(current.right)
+                stack.append(current.right)
             if current.left:
-                nodes.append(current.left)
+                stack.append(current.left)
         return res
         
