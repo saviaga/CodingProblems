@@ -30,3 +30,6 @@ class Solution(object):
             
         return root
         
+        #Since each node in the tree is visited / added to the queue only once, the time complexity is O(n), where nn is the number of nodes in the tree.
+
+#Space complexity is O(n), since in the worst case, the queue will contain all nodes in one level of the binary tree. For a full binary tree, the leaf level has n/2 = 0(n) leaves.
