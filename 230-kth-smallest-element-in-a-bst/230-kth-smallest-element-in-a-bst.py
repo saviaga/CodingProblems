@@ -15,16 +15,19 @@ class Solution(object):
         current = root
         stack = []
         res = []
-        cont = 0
-        while current:
+        
+        while current:                      #TO(N)  S#O(N)
             stack.append(current)
             current = current.left
             
             while current == None and stack:
                 current = stack.pop()
-                k-=1
-                if not k: 
-                    return current.val
+                res.append(current.val)
                 current = current.right
-
+        
+        heapq.heapify(res)  #O(N)
+        
+        for _ in range(k):   
+            num = heappop(res)
+        return num
         
