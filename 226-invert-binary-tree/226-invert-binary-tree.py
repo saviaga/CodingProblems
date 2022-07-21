@@ -6,30 +6,22 @@
 #         self.right = right
 class Solution(object):
     def invertTree(self, root):
+    
         """
         :type root: TreeNode
         :rtype: TreeNode
         """
         if root == None:
             return
-        queue = collections.deque([root])
         
-        res = [] 
-        
-        while queue:
-            
-            for _ in range(len(queue)):
-                current = queue.popleft()
-                
-                current.left,current.right = current.right,current.left
-                
-                if current.left:
-                    queue.append(current.left)
-                if current.right:
-                    queue.append(current.right)
-            
+        right = self.invertTree(root.right)
+        left = self.invertTree(root.left)
+        root.left = right
+        root.right = left
         return root
-        
+        #iterative
         #Since each node in the tree is visited / added to the queue only once, the time complexity is O(n), where nn is the number of nodes in the tree.
 
 #Space complexity is O(n), since in the worst case, the queue will contain all nodes in one level of the binary tree. For a full binary tree, the leaf level has n/2 = 0(n) leaves.
+
+        #recursionBecause of recursion, O(h) function calls will be placed on the stack in the worst case, where h is the height of the tree. Because h∈O(n), the space complexity is O(n).
