@@ -25,9 +25,7 @@ class Solution(object):
                 res.append(current.val)
                 current = current.right
         
-        heapq.heapify(res)  #O(N)
+        print(res)
         
-        for _ in range(k):   
-            num = heappop(res)
-        return num
+        return res[k-1]
         
