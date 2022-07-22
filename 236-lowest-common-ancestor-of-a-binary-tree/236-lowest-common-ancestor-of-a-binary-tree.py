@@ -23,7 +23,7 @@ class Solution(object):
         
         # Iterate until we find both the nodes p and q
         #while p not in dic_ancestors or q not in dic_ancestors:
-        while stack:
+        while p not in dic_ancestors or q not in dic_ancestors:
                 curr = stack.pop()
                 if curr.right:
                     dic_ancestors[curr.right] = curr
