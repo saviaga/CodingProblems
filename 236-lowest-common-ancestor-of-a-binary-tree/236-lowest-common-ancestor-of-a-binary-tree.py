@@ -45,6 +45,7 @@ class Solution(object):
         # The first ancestor of q which appears in
         # p's ancestor set() is their lowest common ancestor.
         
+
             
         return q
         
