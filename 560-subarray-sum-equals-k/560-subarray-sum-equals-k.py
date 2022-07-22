@@ -5,31 +5,23 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
         count = 0
+        
         cs = 0
-        dict_sum = {0:1}
         
-        for i in range(len(nums)):           
-            cs += nums[i];
+        dic_cs= {0:1}
+        
+        
+        for elem in nums:
+            cs+=elem
             
-            if (cs - k) in dict_sum: 
-                count += dict_sum[cs - k]
-            
-            if cs in  dict_sum:
-                dict_sum[cs]+=1
+            if (cs-k) in dic_cs:
+                count+=dic_cs[cs-k]
+                
+            if cs in dic_cs:
+                dic_cs[cs] += 1
             else:
-                dict_sum[cs] = 1
-
-        return count
-    
-    #Time complexity : O(n)O(n). The entire numsnums array is traversed only once.
-
-#Space complexity : O(n)O(n). Hashmap mapmap can contain up to nn distinct entries in the worst case.
-
-
-                
-                
-            
-            
+                dic_cs[cs] = 1
         
+        print(dic_cs)
+        return count
