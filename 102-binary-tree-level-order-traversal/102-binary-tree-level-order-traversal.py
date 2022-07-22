@@ -25,7 +25,12 @@ class Solution(object):
                     queue.append(current.left)
                 if current.right:
                     queue.append(current.right)
-            
             res.append(level)
         return res
                 
+                    
+                
+            
+            
+        
+        
