@@ -15,13 +15,12 @@ class Solution(object):
         
         stack = [root]
         res = []
-
-        while stack:
-            current = stack.pop()
-            res.append(current.val)
-            if current.right:
-                stack.append(current.right)
-            if current.left:
-                stack.append(current.left)
-        return res
         
+        while stack:
+            curr = stack.pop()
+            res.append(curr.val)
+            if curr.right:
+                stack.append(curr.right)
+            if curr.left:
+                stack.append(curr.left)
+        return res
