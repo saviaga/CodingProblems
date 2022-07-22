@@ -13,17 +13,16 @@ class Solution(object):
         :rtype: int
         """
         
-        nodes = [root]
-        res = 0
+        stack = [root]
         
-        while nodes:
-            current = nodes.pop()
-            if current.val >= low and current.val <= high:
-                res+=current.val
-            if current.right:
-                nodes.append(current.right)
-            if current.left:
-                nodes.append(current.left)
-        return res
-            
+        res = []
         
+        while stack:
+            curr = stack.pop()
+            if curr.val>= low and curr.val<=high:
+                res.append(curr.val)
+            if curr.right:
+                stack.append(curr.right)
+            if curr.left:
+                stack.append(curr.left)
+        return sum(res)
