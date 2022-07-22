@@ -10,15 +10,19 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        current = root
         stack = []
-        res = []
         
+        current = root
+        res = []
         while current:
+            
             stack.append(current)
             current = current.left
             while current == None and stack:
-                current=stack.pop()
+                
+                current = stack.pop()
                 res.append(current.val)
-                current= current.right
+                current = current.right
         return res
+                
+            
