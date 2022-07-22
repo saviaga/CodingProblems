@@ -11,13 +11,22 @@ class Solution(object):
         :type target: float
         :rtype: int
         """
-        closest = root.val
+        
+        if root == None:
+            return
+        
+        closest = root.val 
+            
         while root:
+            
             if abs(root.val - target) < abs(closest - target):
                 closest = root.val
             if target < root.val:
-                root = root.left  
+                root = root.left
             else:
                 root = root.right
         return closest
+    
+             
+        
         
