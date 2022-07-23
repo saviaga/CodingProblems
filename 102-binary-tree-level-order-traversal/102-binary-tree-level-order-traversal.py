@@ -12,25 +12,20 @@ class Solution(object):
         """
         if root == None:
             return
-        
         queue = collections.deque([root])
+        
         res = []
         
         while queue:
             level = []
             for _ in range(len(queue)):
-                current = queue.popleft()
-                level.append(current.val)
-                if current.left:
-                    queue.append(current.left)
-                if current.right:
-                    queue.append(current.right)
+                curr = queue.popleft()
+                level.append(curr.val)
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
             res.append(level)
         return res
-                
-                    
-                
+    
             
-            
-        
-        
