@@ -13,22 +13,25 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        parent_val = root.val
+        
         
         p_val = p.val
         q_val = q.val
         
-        #If both p and q are lesser than parent, then search in the right subtree
-        if p_val < parent_val and q_val < parent_val:
-            return self.lowestCommonAncestor(root.left,p,q)
         
+        
+        while root:
+            parent_val = root.val
         #If both p and q are greater than parent, then search in the left subtree
-        elif p_val > parent_val and q_val > parent_val:
-            return self.lowestCommonAncestor(root.right,p,q)
+            if p_val > parent_val and q_val > parent_val:
+                root = root.right
+        #If both p and q are lesser than parent, then search in the right subtree
+            elif p_val < parent_val and q_val < parent_val:
+                root = root.left
         
         # if p is in one side and q is in the other then the root is the lca
-        else:
-            return root
+            else:
+                return root
         
         
         
