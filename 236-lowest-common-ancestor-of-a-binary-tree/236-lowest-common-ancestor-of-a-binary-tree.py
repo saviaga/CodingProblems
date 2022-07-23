@@ -13,44 +13,25 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if root == None:
-            return
         
         stack = [root]
-        dic_ancestors = {root:None}
-        LCA = set()
-
-        
-        # Iterate until we find both the nodes p and q
-        #while p not in dic_ancestors or q not in dic_ancestors:
-        while p not in dic_ancestors or q not in dic_ancestors:
-                curr = stack.pop()
-                if curr.right:
-                    dic_ancestors[curr.right] = curr
-                    stack.append(curr.right)
-                if curr.left:
-                    dic_ancestors[curr.left] = curr
-                    stack.append(curr.left)
-    
-        # Process all ancestors for node p using parent pointers.
-        
+        dic_ans = {root:None}
+        LCAs = set()
+        while p not in dic_ans or q not in dic_ans:
+            curr = stack.pop()
+            if curr.left:
+                dic_ans[curr.left] = curr
+                stack.append(curr.left)
+            if curr.right:
+                dic_ans[curr.right] = curr
+                stack.append(curr.right)
 
         while p:
-            LCA.add(p)
-            p = dic_ancestors[p]
+            LCAs.add(p)
+            p = dic_ans[p]
             
-        while q not in LCA:
-            q = dic_ancestors[q]
-        
-        # The first ancestor of q which appears in
-        # p's ancestor set() is their lowest common ancestor.
-        
-
-            
+        while q not in LCAs:
+            q = dic_ans[q]
         return q
         
-#Complexity Analysis
-
-#Time Complexity: O(N), where NN is the number of nodes in the binary tree. In the worst case we might be visiting all the nodes of the binary tree.
-
-#Space Complexity: O(N). This is because the maximum amount of space utilized by the recursion stack would be NN since the height of a skewed binary tree could be NN.        
+                
