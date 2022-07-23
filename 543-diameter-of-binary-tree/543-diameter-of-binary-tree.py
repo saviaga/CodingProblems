@@ -14,14 +14,13 @@ class Solution(object):
             if root == None:
                 return 0
             
-            
+
             left =  diameterOfBinaryTreeHelper(root.left)
             right = diameterOfBinaryTreeHelper(root.right)
             
             self.diameter = max(self.diameter,left + right)
             
             return max(left,right) + 1    
-    
     
         self.diameter = 0
         diameterOfBinaryTreeHelper(root)
