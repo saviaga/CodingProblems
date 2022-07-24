@@ -9,7 +9,8 @@ class Solution(object):
         for i,pr in enumerate(prices):
             #print(stack)
             while stack and pr <= prices[stack[-1]]:
-                prices[stack.pop()]-=pr
+                original_p = stack.pop()
+                prices[original_p]-=pr
             stack.append(i)
             
         return prices
