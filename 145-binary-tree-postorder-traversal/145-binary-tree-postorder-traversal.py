@@ -12,19 +12,18 @@ class Solution(object):
         """
         if root == None:
             return
+        stack=[(root,False)]
         
-        stack = [(root,False)]
         res = []
         
         while stack:
-            current,visited = stack.pop()
+            curr,visited = stack.pop()
             if visited:
-                res.append(current.val)
-                
+                res.append(curr.val)
             else:
-                stack.append([current,True])
-                if current.right:
-                    stack.append([current.right,False])
-                if current.left:
-                    stack.append([current.left,False])
+                stack.append((curr,True))
+                if curr.right:
+                    stack.append((curr.right,False))
+                if curr.left:
+                    stack.append((curr.left,False))
         return res
