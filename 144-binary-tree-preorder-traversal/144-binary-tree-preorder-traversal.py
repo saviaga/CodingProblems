@@ -15,7 +15,6 @@ class Solution(object):
         
         stack = [root]
         res = []
-        
         while stack:
             curr = stack.pop()
             res.append(curr.val)
@@ -24,3 +23,5 @@ class Solution(object):
             if curr.left:
                 stack.append(curr.left)
         return res
+                    
+            
