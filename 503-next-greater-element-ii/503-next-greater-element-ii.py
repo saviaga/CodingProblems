@@ -8,7 +8,7 @@ class Solution(object):
         stack = []
         
         for i in range(len(nums)*2-1,-1,-1):
-            while stack and  nums[i%len(nums)] >= nums[stack[-1]]:
+            while stack and   nums[stack[-1]] <= nums[i%len(nums)] :
                 stack.pop()
             
             
