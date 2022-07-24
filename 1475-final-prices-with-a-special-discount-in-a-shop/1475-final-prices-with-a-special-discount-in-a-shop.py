@@ -7,10 +7,8 @@ class Solution(object):
         dic_pairs = {}
         stack = []
         for i,pr in enumerate(prices):
-            #print(stack)
             while stack and pr <= prices[stack[-1]]:
-                original_p = stack.pop()
-                prices[original_p]-=pr
+                prices[stack.pop()]-=pr
             stack.append(i)
             
         return prices
