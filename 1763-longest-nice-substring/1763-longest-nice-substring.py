@@ -1,6 +1,8 @@
 class Solution:
     def longestNiceSubstring(self, s: str) -> str:
         
+
+        
       
         # Edge case
         if len(s) < 2:
