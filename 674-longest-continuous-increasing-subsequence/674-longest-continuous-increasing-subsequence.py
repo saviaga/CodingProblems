@@ -5,13 +5,10 @@ class Solution:
         longest = 0
         
         for end in range(len(nums)):
-            if end > 0 and nums[end-1] >= nums[end]:
+            if end > 0 and nums[end] <= nums[end-1]:
                 start = end
             longest = max(longest,end-start+1)
-           
-                
         return longest
-            
         
         
         
