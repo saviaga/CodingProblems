@@ -7,11 +7,11 @@ class Solution:
             return ""
         
         nice = ""           # Store the longest nice substring
-        #unique = set(s)     # Store all unique letters
+        unique = set(s)     # Store all unique letters
         
         for i in range(len(s)):
             
-            if s[i].lower() in s and s[i].upper() in s:
+            if s[i].lower() in unique and s[i].upper() in unique:
                 nice += s[i]
             else:
                 leftPart = self.longestNiceSubstring(s[:i])
