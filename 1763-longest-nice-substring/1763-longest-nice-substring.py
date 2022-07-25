@@ -7,7 +7,7 @@ class Solution:
             return ""
         
         nice = ""           # Store the longest nice substring
-        unique = set(s)     # Store all unique letters
+        #unique = set(s)     # Store all unique letters
         
         for i in range(len(s)):
             
