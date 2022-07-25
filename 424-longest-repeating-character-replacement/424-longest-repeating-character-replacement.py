@@ -8,7 +8,11 @@ class Solution:
         for end in range(len(s)):
             char = s[end]
             #add char to frequencies
-            count_freq[char] = 1+ count_freq.get(char,0)
+            if char not in count_freq:
+                count_freq[char] = 1
+            else:
+                count_freq[char]+=1
+            #count_freq[char] = 1+ count_freq.get(char,0)
             max_freq = max(max_freq,count_freq[char])
             #check the number of replacemets that we would have to do
             #if its not feasible shrink the window and eliminate that frequency
