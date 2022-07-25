@@ -4,16 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        
         start = 0
-        max_sub = 0
-        elements = {}
-        
+        longest = 0
+        dic_ind = {}
         for end in range(len(s)):
             char = s[end]
-            if s[end] in elements:
-                start = max(start,elements[char]+1)
-            elements[char] = end
-            max_sub = max(max_sub,end-start+1)
-        return max_sub
+            
+            if char in dic_ind:
+                start = max(start,dic_ind[char]+1)
+            dic_ind[char] = end
+            
+            longest = max(longest,end-start+1)
+        return longest
         
