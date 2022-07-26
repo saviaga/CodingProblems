@@ -2,10 +2,8 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         res =[]
         intervals.sort(reverse=True)
-        print(intervals)
         while intervals:
             current = intervals.pop()
-            
             start = current[0]
             end = current[1]
             
