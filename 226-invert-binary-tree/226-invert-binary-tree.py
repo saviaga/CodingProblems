@@ -7,17 +7,18 @@
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         
+        
         if root == None:
-            return None
+            return
         
-        queue = collections.deque([root])
+        queue= collections.deque([root])
+        
         while queue:
-            current = queue.popleft()
-            current.left, current.right = current.right,current.left
-            if current.left:
-                queue.append(current.left)
-            if current.right:
-                queue.append(current.right)
+            for _ in range(len(queue)):
+                curr = queue.popleft()
+                curr.left,curr.right = curr.right,curr.left
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
         return root
-        
-        
