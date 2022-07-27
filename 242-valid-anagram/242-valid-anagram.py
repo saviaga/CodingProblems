@@ -5,6 +5,7 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        
         if len(s)!=len(t):
             return False
         s_dic = Counter(s)
@@ -17,8 +18,8 @@ class Solution(object):
                 s_dic[elem]+=1
             if s_dic[elem] ==0:
                 del s_dic[elem]
-        
         if  len(s_dic.keys())>0:
             return False
         return True
+            
         
