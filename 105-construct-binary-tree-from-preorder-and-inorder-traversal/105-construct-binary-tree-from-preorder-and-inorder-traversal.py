@@ -9,21 +9,21 @@ class Solution:
         
        
         def array_to_tree(left,right):
-            nonlocal preorder_index
+            
             # if there are no elements to construct the tree
             if left > right: return None
             
-            root_value = preorder[preorder_index]
+            root_value = preorder[self.preorder_index]
             root = TreeNode(root_value)
             
-            preorder_index +=1
+            self.preorder_index +=1
             
             root.left = array_to_tree(left,inorder_index[root_value]-1 )
             root.right =  array_to_tree(inorder_index[root_value]+1,right)
             
             return root
         
-        preorder_index = 0
+        self.preorder_index = 0
         inorder_index = {}
         
         for index, value in enumerate(inorder):
