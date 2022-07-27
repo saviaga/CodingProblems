@@ -10,19 +10,11 @@ class Solution:
         if not root:
             return False
         
-        stack = [(root,targetSum-root.val)]
+        targetSum-=root.val
+        if not root.left and not root.right:
+            return targetSum==0
+        return self.hasPathSum(root.left, targetSum) or self.hasPathSum(root.right, targetSum)
         
-        
-        while stack:
-            curr,cum_sum = stack.pop()
-            
-            if not curr.left and not curr.right and cum_sum == 0:
-                return True
-            
-            if curr.right:
-                stack.append((curr.right, cum_sum-curr.right.val))
-            if curr.left:
-                stack.append((curr.left,cum_sum-curr.left.val))
             
         return False
         
