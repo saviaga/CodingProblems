@@ -30,8 +30,9 @@ class Solution:
                     
         res.sort()
         print(res)
+        
         for col, row, val in res:
-            all_levels[col].append(val)
+                all_levels[col].append(val)
         
         return all_levels.values()
             
