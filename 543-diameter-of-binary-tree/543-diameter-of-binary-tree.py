@@ -11,26 +11,24 @@ class Solution(object):
         :rtype: int
         """
         
-        def diameterOfBinaryTreeHelper(root):
-            if root == None:
-                return 0
-            
-            left = diameterOfBinaryTreeHelper(root.left)
-            right = diameterOfBinaryTreeHelper(root.right)
-            
-            self.diameter = max(self.diameter, left + right )
-            
-            return max(left,right) + 1
-            
-            
-            
-            
-            
-            
-            
-            
-        self.diameter = 0
-        diameterOfBinaryTreeHelper(root)
-        return self.diameter
+        stack = [(root,False)]
+        diameter = 0
+        heights = {}
         
-        
+        while stack:
+            curr,visited = stack.pop()
+            
+            if visited:
+                hleft = heights.get(curr.left, 0)
+                hright = heights.get(curr.right,0)
+                
+                diameter = max(diameter,hleft+hright)
+                
+                heights[curr] = max(hleft,hright)+1
+            else:
+                stack.append((curr,True))
+                if curr.right:
+                     stack.append((curr.right,False))
+                if curr.left:
+                     stack.append((curr.left,False))
+        return diameter
