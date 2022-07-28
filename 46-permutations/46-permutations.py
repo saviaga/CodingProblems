@@ -7,7 +7,7 @@ class Solution(object):
         
         def permuteHelper(nums,chosen):
             if len(nums)==0:
-                print(chosen)
+               
                 return res.append(chosen[:])
             else:
                 
