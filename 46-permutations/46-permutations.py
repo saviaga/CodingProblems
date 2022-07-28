@@ -8,7 +8,7 @@ class Solution(object):
         def permuteHelper(nums,chosen):
             if len(nums)==0:
                
-                return res.append(chosen[:])
+                return self.res.append(chosen[:])
             else:
                 
                 for i in range(len(nums)):  
@@ -22,9 +22,9 @@ class Solution(object):
                     #unchose
                     nums.insert(i,element)
                     chosen.pop()
-        res = []            
+        self.res = []            
         permuteHelper(nums,[])
-        return res
+        return self.res
         
         
                 
