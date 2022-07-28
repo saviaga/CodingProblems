@@ -1,14 +1,8 @@
 class Solution(object):
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        
-        def permuteHelper(nums,chosen):
+    def permuteHelper(self,nums,chosen):
             if len(nums)==0:
-               
-                return res.append(chosen[:])
+                
+                return self.res.append(chosen[:])
             else:
                 
                 for i in range(len(nums)):  
@@ -18,13 +12,20 @@ class Solution(object):
                     chosen.append(element)
                     nums.remove(element)
                     #explore
-                    permuteHelper(nums,chosen)
+                    self.permuteHelper(nums,chosen)
                     #unchose
                     nums.insert(i,element)
                     chosen.pop()
-        res = []            
-        permuteHelper(nums,[])
-        return res
+
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        
+        self.res = []            
+        self.permuteHelper(nums,[])
+        return self.res
         
         
                 
