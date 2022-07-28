@@ -5,21 +5,23 @@ class Solution(object):
         :type k: int
         :rtype: List[List[int]]
         """
-        
-        def combineHelper(first,chosen):
+        def combineHelper(curr,chosen):
+           
             
-            if len(chosen) == k:
+            if len(chosen)==k:
                 res.append(chosen[:])
-                
-                
-            else:
-                for i in range(first,n+1):
-                #chose
+              
+            else:    
+                for i in range(curr,n+1):
+                    #chose 
                     chosen.append(i)
-                #explore
-                    combineHelper(i+1,chosen )
-                #unchose
+                    
+                    #explore
+                    combineHelper(i+1,chosen)
+                   
+                    #unchoose
                     chosen.pop()
+                   
                     
         res = []
         combineHelper(1,[])
