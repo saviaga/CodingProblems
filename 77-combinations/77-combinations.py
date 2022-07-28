@@ -10,15 +10,17 @@ class Solution(object):
             
             if len(chosen) == k:
                 res.append(chosen[:])
-            
+                
+                
             else:
-                for i in range(first, n+1):
-                    #chose
+                for i in range(first,n+1):
+                #chose
                     chosen.append(i)
-                    #explore
-                    combineHelper(i+1,chosen)
-                    #unchose
+                #explore
+                    combineHelper(i+1,chosen )
+                #unchose
                     chosen.pop()
+                    
         res = []
         combineHelper(1,[])
         return res
