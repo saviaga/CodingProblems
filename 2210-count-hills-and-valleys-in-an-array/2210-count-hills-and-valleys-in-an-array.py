@@ -10,7 +10,7 @@ class Solution:
             if nums[i] == prev:
                 prev = nums[i]
                 continue
-            if nums[i] > prev and nums[i] > nums[i+1]:
+            elif nums[i] > prev and nums[i] > nums[i+1]:
                     result+=1
                     prev = nums[i]
                     print(result)
