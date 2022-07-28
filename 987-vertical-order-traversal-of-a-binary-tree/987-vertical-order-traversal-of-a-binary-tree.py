@@ -19,7 +19,7 @@ class Solution:
         while queue:
             for _ in range(len(queue)):
                 curr,row,col = queue.popleft()
-                res.append((col,row, curr.val))
+                res.append((col,row,curr.val,))
                 min_col = min(min_col,col)
                 max_col = max(max_col,col)
                 
@@ -29,9 +29,10 @@ class Solution:
                     queue.append((curr.right,row+1,col+1))
                     
         res.sort()
-        print(res)
+
         
-        for col, row, val in res:
+        for col,row,val in res:
+              
                 all_levels[col].append(val)
         
         return all_levels.values()
