@@ -9,9 +9,9 @@ class Solution(object):
         for i in range(len(mat)):
             #add first diag
             total+=mat[i][i]
-            if i != j-i:
-                total+=mat[i][j-i]
-                
+            if i == j-i:
+                continue
+            total+=mat[i][j-i]
              
         return total
     
