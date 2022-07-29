@@ -17,18 +17,16 @@ class TicTacToe(object):
         :type player: int
         :rtype: int
         """
-        if player == 1:
-            offset = 1
-        else:
-            offset = -1
-        #offset = -1 if player==1 else 1
+        points = 1 if player == 1 else -1
+          
         
-        self.row[row] += offset
-        self.col[col] += offset
+        
+        self.row[row] += points
+        self.col[col] += points
         if row == col:
-            self.diag += offset
+            self.diag += points
         if row + col == self.n - 1:
-            self.anti_diag += offset
+            self.anti_diag += points
         if self.n in [self.row[row], self.col[col], self.diag, self.anti_diag]:
             return 1
         if -self.n in [self.row[row], self.col[col], self.diag, self.anti_diag]:
