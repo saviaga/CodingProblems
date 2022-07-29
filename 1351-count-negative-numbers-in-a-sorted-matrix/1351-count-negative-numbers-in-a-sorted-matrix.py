@@ -4,19 +4,24 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
+        def search_negative(row):
+            start = 0
+            end = len(row)
+            
+            while start<end:
+                mid = start + (end-start)//2
+                if row[mid] <0:
+                    end = mid
+                else:
+                    start = mid+1
+                
+            return len(row)- start
         
-      
-
-        row = len(grid)-1
-        col,count = 0,0
-       
-        while row>=0 and col< len(grid[0]):
-            if grid[row][col] < 0:
-                count +=len(grid[0])-col
-                row -= 1  #if negative found move to the upper row
-            else:
-                col +=1  #if negative not found keep looking in next column
+        count = 0
+        for row in grid:
+            count +=search_negative(row)
         return count
+    
     
         #Time complexity O(n+m)
         #Space complexity O(1)
