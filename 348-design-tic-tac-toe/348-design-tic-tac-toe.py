@@ -17,7 +17,11 @@ class TicTacToe(object):
         :type player: int
         :rtype: int
         """
-        offset = -1 if player==1 else 1
+        if player == 1:
+            offset = 1
+        else:
+            offset = -1
+        #offset = -1 if player==1 else 1
         
         self.row[row] += offset
         self.col[col] += offset
@@ -26,9 +30,9 @@ class TicTacToe(object):
         if row + col == self.n - 1:
             self.anti_diag += offset
         if self.n in [self.row[row], self.col[col], self.diag, self.anti_diag]:
-            return 2
-        if -self.n in [self.row[row], self.col[col], self.diag, self.anti_diag]:
             return 1
+        if -self.n in [self.row[row], self.col[col], self.diag, self.anti_diag]:
+            return 2
         return 0
     
         
