@@ -18,6 +18,6 @@ class Solution(object):
                 col +=1  #if negative not found keep looking in next column
         return count
     
-        #Time complexity O(N)
+        #Time complexity O(n+m)
         #Space complexity O(1)
     
