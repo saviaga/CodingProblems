@@ -11,7 +11,7 @@ class Solution(object):
             while start<end:
                 mid = start + (end-start)//2
                 if row[mid] <0:
-                    end = mid
+                    end = mid 
                 else:
                     start = mid+1
                 
