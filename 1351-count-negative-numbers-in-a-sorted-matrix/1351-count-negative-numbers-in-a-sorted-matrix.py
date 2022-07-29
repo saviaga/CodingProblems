@@ -5,12 +5,12 @@ class Solution(object):
         :rtype: int
         """
         
-        neg_num = 0
-        
-        for row in range(len(grid)):
-            for col in reversed(range(len(grid[0]))):
-                if grid[row][col] < 0:
-                    neg_num+=1
-                    
-        return neg_num
-        
+        res = 0
+        n = len(grid)
+        for i in range(n):
+            m = len(grid[i])
+            for j in range(m):
+                if grid[i][j] < 0:
+                    res += m-j      # once we met the first negative, break the loop
+                    break
+        return res        
