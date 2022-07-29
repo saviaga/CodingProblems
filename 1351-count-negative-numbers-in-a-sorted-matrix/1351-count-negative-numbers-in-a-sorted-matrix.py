@@ -7,11 +7,15 @@ class Solution(object):
         
         res = 0
 
-        col_s = len(grid[0])
-        for row in range(len(grid)):
-             
-            for col in range(col_s):
-                if grid[row][col] < 0:
-                    res += col_s-col      # once we met the first negative, break the loop
-                    break
-        return res     
+        row = len(grid)-1
+        col = 0
+        count = 0
+        while row>=0 and col< len(grid[0]):
+            if grid[row][col] < 0:
+                count +=len(grid[0])-col
+                row -= 1  #if negative found move to the upper row
+            else:
+                col +=1  #if negative not found keep looking in next column
+        return(count)
+    
+    
