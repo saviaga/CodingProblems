@@ -26,12 +26,14 @@ class Solution(object):
             
             #right to left
             if (top <= bottom): #to avoid repeating right to left if only 1 col mat
-                for col in range(right,left-1,-1):
+               
+                for col in reversed(range(left,right+1)):
                     res.append(mat[bottom][col]) #add bottom row 
                 bottom -= 1
                 
             #bottom to top   
             if (left <= right): #to avoid repeating bottom to top if only 1 row mat
+
                 for row in range(bottom,top-1,-1):
                     res.append(mat[row][left]) #add bottom column
                 left += 1
