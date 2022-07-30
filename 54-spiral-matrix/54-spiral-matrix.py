@@ -26,7 +26,7 @@ class Solution(object):
             
             #left to right
             if (top <= bottom): #to avoid repeating left to right if only 1 col mat
-                for i in range(right,left-1,-1):
+                for i in reversed(range(left,right+1)):
                     res.append(mat[bottom][i]) #add bottom row 
                 bottom -= 1
                 
