@@ -19,21 +19,23 @@ class Solution(object):
                 res.append(mat[top][col])  #add top row 
             top += 1
             
-            #top to bottom
+            #right- > top to bottom 
             for row in range(top,bottom):
                 res.append(mat[row][right-1]) # add right column
             right -= 1
             
-            #right to left
+            #bottom = > right to left
+            #if the top < bottom then there at least 1 row from right to left to add
             if (top < bottom): #to avoid repeating right to left if only 1 col mat
                 for col in reversed(range(left,right)):
                     res.append(mat[bottom-1][col]) #add bottom row 
                 bottom -= 1
-                
-            #bottom to top   
+            
+            #left -> bottom to top
+            #if the left  < right there is at least one left columm to add 
             if (left < right): #to avoid repeating bottom to top if only 1 row mat
                 for row in reversed(range(top,bottom)):
-                    res.append(mat[row][left]) #add bottom column
+                    res.append(mat[row][left]) #add left column
                 left += 1
         return res
             
