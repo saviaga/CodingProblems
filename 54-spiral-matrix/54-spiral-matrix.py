@@ -5,30 +5,38 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        left,right = 0, len(mat[0])
-        top,bottom = 0, len(mat)
+        
+        row_begin = 0
+        col_begin = 0
+        row_end = len(mat)-1 
+        col_end = len(mat[0])-1
         
         
-        while left < right and top <bottom:
+        while (row_begin <= row_end and col_begin <= col_end):
             
-            for i in range(left,right):#from left to right 
-                res.append(mat[top][i]) #add elements in top row 
-            top+=1
+            #left to right
+            for i in range(col_begin,col_end+1):
+                res.append(mat[row_begin][i])  #add top row 
+            row_begin += 1
             
-            for i in range(top,bottom): #from top to bottom
-                res.append(mat[i][right-1]) #add elements in right col
-            right-=1
+            #top to bottom
+            for i in range(row_begin,row_end+1):
+                res.append(mat[i][col_end]) # add right column
+            col_end -= 1
             
-            if not (left< right and top<bottom):
-                break
-            
-            for i in reversed(range(left,right)):  #from right to left
-                res.append(mat[bottom-1][i])       #add elements in the bottom row
-            bottom-=1
-            
-            for i in reversed(range(top,bottom)):#from bottom to top
-                res.append(mat[i][left])  #add elements in the left column
-            left+=1
+            #left to right
+            if (row_begin <= row_end): #to avoid repeating left to right if only 1 col mat
+                for i in range(col_end,col_begin-1,-1):
+                    res.append(mat[row_end][i]) #add bottom row 
+                row_end -= 1
+                
+            #bottom to top   
+            if (col_begin <= col_end): #to avoid repeating bottom to top if only 1 row mat
+                for i in range(row_end,row_begin-1,-1):
+                    res.append(mat[i][col_begin]) #add bottom column
+                col_begin += 1
         return res
+            
+            
             
             
