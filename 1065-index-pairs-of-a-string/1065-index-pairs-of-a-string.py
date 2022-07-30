@@ -22,7 +22,6 @@ class Trie(object):
             
             
                 
-
 class Solution(object):
 
     def indexPairs(self, text, words):
@@ -31,7 +30,7 @@ class Solution(object):
         :type words: List[str]
         :rtype: List[List[int]]
         """
-        n = len(text)
+        len_t = len(text)
         mytrie = Trie()
         node = mytrie.root
         
@@ -40,17 +39,17 @@ class Solution(object):
             mytrie.insert(word)
         solutions = []
         
-        def trie_search(j):
+        def trie_search(char_to_search):
             node = mytrie.root
-            j = i
-            while node and j < n  and text[j] in node:
-                node = node[text[j]]
+            idx = char_to_search
+            while node and idx < len_t  and text[idx] in node:
+                node = node[text[idx]]
                 if node.eow:
-                    solutions.append([i,j])
-                j+=1
+                    solutions.append([char_to_search,idx])
+                idx+=1
         #O(N*L)
-        for i in range(n):
-            trie_search(i)
+        for char in range(len_t):
+            trie_search(char)
         return solutions
             
             
