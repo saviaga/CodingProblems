@@ -34,7 +34,7 @@ class Solution(object):
             #bottom to top   
             if (left <= right): #to avoid repeating bottom to top if only 1 row mat
 
-                for row in range(bottom,top-1,-1):
+                for row in reversed(range(top,bottom+1)):
                     res.append(mat[row][left]) #add bottom column
                 left += 1
         return res
