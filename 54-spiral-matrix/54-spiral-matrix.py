@@ -32,7 +32,7 @@ class Solution(object):
                 
             #bottom to top   
             if (left <= right): #to avoid repeating bottom to top if only 1 row mat
-                for i in range(bottom,top-1,-1):
+                for i in reversed(range(top,bottom+1)):
                     res.append(mat[i][left]) #add bottom column
                 left += 1
         return res
