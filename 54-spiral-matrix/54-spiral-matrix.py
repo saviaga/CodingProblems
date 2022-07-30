@@ -11,27 +11,23 @@ class Solution(object):
         
         while left < right and top <bottom:
             
-            #from left to right 
-            for i in range(left,right):
-                res.append(mat[top][i])
+            for i in range(left,right):#from left to right 
+                res.append(mat[top][i]) #add elements in top row 
             top+=1
             
-            #from top to bottom
-            for i in range(top,bottom):
-                res.append(mat[i][right-1])
+            for i in range(top,bottom): #from top to bottom
+                res.append(mat[i][right-1]) #add elements in right col
             right-=1
             
             if not (left< right and top<bottom):
                 break
             
-            #from right to left:
-            for i in reversed(range(left,right)):
-                res.append(mat[bottom-1][i])
+            for i in reversed(range(left,right)):  #from right to left
+                res.append(mat[bottom-1][i])       #add elements in the bottom row
             bottom-=1
             
-            #from bottom to top:
-            for i in reversed(range(top,bottom)):
-                res.append(mat[i][left])
+            for i in reversed(range(top,bottom)):#from bottom to top
+                res.append(mat[i][left])  #add elements in the left column
             left+=1
         return res
             
