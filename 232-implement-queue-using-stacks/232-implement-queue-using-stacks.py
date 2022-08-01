@@ -32,8 +32,7 @@ class MyQueue(object):
         """
         Get the front element.
         :rtype: int
-        """
-        
+        """        
         return self.stack[-1]
 
     def empty(self):
