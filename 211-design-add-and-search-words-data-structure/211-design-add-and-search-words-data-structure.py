@@ -22,22 +22,22 @@ class WordDictionary(object):
         
 
     def search(self, word):
-        def dfs(j,child):
-            cur = child
-            for i in range(j,len(word)):
+        def search_node(idx,node):
+            
+            for i in range(idx,len(word)):
                 w = word[i]
                 if w==".":
-                    for child in cur.children.values():
-                        if dfs(i+1,child):
+                    for child in node.children.values():
+                        if search_node(i+1,child):
                             return True
                     return False
 
                 else:
-                    if w not in cur.children:
+                    if w not in node.children:
                         return False
-                    cur = cur.children[w]
-            return cur.eow
-        return dfs(0,self.root)
+                    node = node.children[w]
+            return node.eow
+        return search_node(0,self.root)
     
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
