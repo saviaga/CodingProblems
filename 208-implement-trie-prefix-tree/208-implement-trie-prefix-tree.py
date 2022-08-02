@@ -10,12 +10,12 @@ class Trie:
         """
         Inserts a word into the trie.
         """
-        start = self.root
+        node = self.root
         for i in word:
-            if i not in start:
-                start[i] = {}
-            start = start[i]
-        start['eow'] = True
+            if i not in node:
+                node[i] = {}
+            node = node[i]
+        node['eow'] = True
                 
         
 
@@ -23,23 +23,23 @@ class Trie:
         """
         Returns if the word is in the trie.
         """
-        start = self.root
+        node = self.root
         for i in word:
-            if i not in start:
+            if i not in node:
                 return False
-            start = start[i]
-        return 'eow' in start
+            node = node[i]
+        return 'eow' in node
         
 
     def startsWith(self, prefix):
         """
         Returns if there is any word in the trie that starts with the given prefix.
         """
-        start = self.root
+        node = self.root
         for i in prefix:
-            if i not in start:
+            if i not in node:
                 return False
-            start = start[i]
+            node = node[i]
         return True
                
                                 
