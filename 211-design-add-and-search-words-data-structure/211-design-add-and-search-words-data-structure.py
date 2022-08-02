@@ -26,7 +26,7 @@ class WordDictionary(object):
                         return True
             elif char in node:
                 return self.helper(node[char], word[1:])
-            return False 
+
         
             
     
