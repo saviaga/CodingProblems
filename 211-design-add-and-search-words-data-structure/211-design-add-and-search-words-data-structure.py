@@ -17,7 +17,10 @@ class WordDictionary(object):
     
     def helper(self, trie, word):
         if not word:
-            return True if trie.get('eow') else False
+            if 'eow' in trie:
+                return True
+            else:
+                return False
 
         if word[0] == '.':
             for c in trie:
