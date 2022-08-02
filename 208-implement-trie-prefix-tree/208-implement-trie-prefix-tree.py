@@ -1,54 +1,47 @@
-class TrieNode(object):
-        def __init__(self):
-            self.eow=False
-            self.children={}
+class Trie:
 
-class Trie(object):
     def __init__(self):
-        self.root = TrieNode()
-    
-
+        """
+        Initialize your data structure here.
+        """
+        self.root = {}
 
     def insert(self, word):
         """
-        :type word: str
-        :rtype: None
+        Inserts a word into the trie.
         """
-        node=self.root
-        for char in word:
-                if char not in node.children:
-                    node.children[char]=TrieNode()
-                node=node.children[char]
-        node.eow=True        
-            
- 
+        start = self.root
+        for i in word:
+            if i not in start:
+                start[i] = {}
+            start = start[i]
+        start['eow'] = True
+                
+        
+
     def search(self, word):
         """
-        :type word: str
-        :rtype: bool
+        Returns if the word is in the trie.
         """
-       
-        node=self.root
-        for char in word:
-                if char not in node.children:
-                    return False
-                node=node.children[char]
-        return node.eow
-                  
+        start = self.root
+        for i in word:
+            if i not in start:
+                return False
+            start = start[i]
+        return 'eow' in start
+        
 
     def startsWith(self, prefix):
         """
-        :type prefix: str
-        :rtype: bool
+        Returns if there is any word in the trie that starts with the given prefix.
         """
-       
-        node=self.root
-        for char in prefix:
-                if char not in node.children:
-                    return False
-                node=node.children[char]
+        start = self.root
+        for i in prefix:
+            if i not in start:
+                return False
+            start = start[i]
         return True
-       
+               
                                 
 
 # Your Trie object will be instantiated and called as such:
