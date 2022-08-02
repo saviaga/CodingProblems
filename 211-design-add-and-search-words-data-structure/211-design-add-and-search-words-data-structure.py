@@ -1,44 +1,35 @@
-class TrieNode(object):
-        def __init__(self):
-            self.children = {}
-            self.eow = False
-
 class WordDictionary(object):
+
     def __init__(self):
-        self.root = TrieNode()
-        
+        self.root = {}
 
     def addWord(self, word):
-        """
-        :type word: str
-        :rtype: None
-        """
         node = self.root
-        for char in word:
-            if char not in node.children:
-                node.children[char] = TrieNode()
-            node = node.children[char]
-        node.eow = True
-        
+        for c in word:
+            if c not in node:
+                node[c] = {}
+            node = node[c]
+        node['eow'] =  True
 
-    def search(self, word):
-        def search_node(idx,node):
-            
-            for i in range(idx,len(word)):
-                w = word[i]
-                if w==".":
-                    for child in node.children.values():
-                        if search_node(i+1,child):
-                            return True
-                    return False
-
-                else:
-                    if w not in node.children:
-                        return False
-                    node = node.children[w]
-            return node.eow
-        return search_node(0,self.root)
     
+    def search(self, word):
+        return self.helper(self.root, word)
+    
+    def helper(self, trie, word):
+        if not word:
+            return True if trie.get('eow') else False
+
+        if word[0] == '.':
+            for c in trie:
+                if c != 'eow' and self.helper(trie[c], word[1:]):
+                    return True
+        elif word[0] in trie:
+            return self.helper(trie[word[0]], word[1:])
+        return False 
+    
+    #Easy part is space complexity, it is O(M), where M is sum of lengths of all words in our Trie. This is upper bound: in practice it will be less than M and it depends, how much words are intersected. The worst time complexity is also O(M), potentially we can visit all our Trie, if we have pattern like ...... For words without ., time complexity will be O(h), where h is height of Trie. For words with several letters and several ., we have something in the middle.
+
+
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
 # obj.addWord(word)
