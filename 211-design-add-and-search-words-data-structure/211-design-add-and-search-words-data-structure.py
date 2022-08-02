@@ -1,20 +1,25 @@
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.isEndNode = False
+class TrieNode(object):
+        def __init__(self):
+            self.children = {}
+            self.eow = False
 
-class WordDictionary:
-
+class WordDictionary(object):
     def __init__(self):
         self.root = TrieNode()
         
+
     def addWord(self, word):
-        cur = self.root
-        for w in word:
-            if w not in cur.children:
-                cur.children[w] = TrieNode()
-            cur = cur.children[w]
-        cur.isEndNode = True     
+        """
+        :type word: str
+        :rtype: None
+        """
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.eow = True
+        
 
     def search(self, word):
         def dfs(j,child):
@@ -31,7 +36,7 @@ class WordDictionary:
                     if w not in cur.children:
                         return False
                     cur = cur.children[w]
-            return cur.isEndNode
+            return cur.eow
         return dfs(0,self.root)
     
 # Your WordDictionary object will be instantiated and called as such:
