@@ -1,11 +1,13 @@
-class Trie(object):
-    def __init__(self):
-        self.root = Trie.TrieNode()
-    
-    class TrieNode(object):
+class TrieNode(object):
         def __init__(self):
             self.eow=False
             self.children={}
+
+class Trie(object):
+    def __init__(self):
+        self.root = TrieNode()
+    
+
 
     def insert(self, word):
         """
@@ -15,7 +17,7 @@ class Trie(object):
         node=self.root
         for char in word:
                 if char not in node.children:
-                    node.children[char]=Trie.TrieNode()
+                    node.children[char]=TrieNode()
                 node=node.children[char]
         node.eow=True        
             
