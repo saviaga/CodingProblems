@@ -17,14 +17,11 @@ class WordDictionary(object):
     
     def helper(self, node, word):
         if not word:
-            if 'eow' in node:
-                return True
-            else:
-                return False
+            return 'eow' in node
 
         if word[0] == '.':
-            for c in node:
-                if c != 'eow' and self.helper(node[c], word[1:]):
+            for child in node:
+                if child != 'eow' and self.helper(node[child], word[1:]):
                     return True
         elif word[0] in node:
             return self.helper(node[word[0]], word[1:])
