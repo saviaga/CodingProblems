@@ -14,8 +14,10 @@ class Solution(object):
     
         rob_curr, not_rob_curr = 0, 0
         for num in nums:
-            rob_curr, not_rob_curr = not_rob_curr + num, max(rob_curr, not_rob_curr)
-            
+           # rob_curr, not_rob_curr = not_rob_curr + num, max(rob_curr, not_rob_curr)
+            temp = not_rob_curr
+            not_rob_curr = max(rob_curr, not_rob_curr)
+            rob_curr = temp + num
         return max(rob_curr, not_rob_curr)
    
     
