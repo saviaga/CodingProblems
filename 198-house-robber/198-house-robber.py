@@ -11,12 +11,12 @@ class Solution(object):
             return nums[0]
         
         
-        rob, not_rob = 0, 0
+    
+        rob_curr, not_rob_curr = 0, 0
         for num in nums:
-            rob, not_rob = not_rob + num, max(rob, not_rob)
-        return max(rob, not_rob)
-        
-        
+            rob_curr, not_rob_curr = not_rob_curr + num, max(rob_curr, not_rob_curr)
+            
+        return max(rob_curr, not_rob_curr)
    
     
     
