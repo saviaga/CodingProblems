@@ -7,28 +7,26 @@ class Solution(object):
         """
         
         
-        def combinationSum(remain_sum,chosen,curr_start):
+        def combineHelper(remain_sum,chosen,curr_start):
             
-            
-            if remain_sum ==0:
-               # make a deep copy of the current combination
+            if remain_sum==0:
                 res.append(chosen[:])
                 return
-            elif remain_sum < 0:# exceed the sum, stop exploration.
-                return 
-               
+            elif remain_sum<0:
+                return
             else:
                 
                 for i in range(curr_start,len(candidates)):
-                #chose
+                    #chose
                     elem = candidates[i]
                     chosen.append(elem)
-                #explore
-                    combinationSum(remain_sum- elem,chosen,i)
-                #unchose
+
+                    #explore
+                    combineHelper(remain_sum-elem,chosen,i)
+                    #unchose
+
                     chosen.pop()
-                    
-        res = []
-        combinationSum(target,[],0)
-        return res
         
+        res = []
+        combineHelper(target,[],0)
+        return res        
