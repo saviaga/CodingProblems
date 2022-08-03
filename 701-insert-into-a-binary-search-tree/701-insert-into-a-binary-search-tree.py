@@ -28,6 +28,6 @@ class Solution(object):
                     return root
         return TreeNode(val)
             
-            
+    #Time complexity : O(H), where H is a tree height. That results in O(logN) in the average case, and O(N) in the worst case. Space O(1) since is constant space
             
        
