@@ -5,15 +5,15 @@ class Solution(object):
         :rtype: int
         """
         
-        m = [0]*(len(nums)+1)
+        m = [0]*len(nums)
         
        
-        if len(nums)==0:
-            return 0
-        m[0] = 0
-        m[1] = nums[0]
-        for i in range(1,len(nums)):
+        if len(nums)<=2:
+            return max(nums)
+        m[0] = nums[0]
+        m[1] = max(nums[0],nums[1])
+        for i in range(2,len(nums)):
         
-            m[i+1] = max((nums[i]+m[i-1]), m[i])
+            m[i] = max((nums[i]+m[i-2]), m[i-1])
         return m[-1]
                               
