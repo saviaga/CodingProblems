@@ -13,15 +13,18 @@ class Solution(object):
         if head is None:
             return False
         slow = head
-        fast = head.next
+        fast = head
         
         
-        while slow!=fast:
-            if fast==None or fast.next==None:
-                return False
+        while fast!=None and fast.next!=None:
             slow = slow.next
             fast = fast.next.next
-        return slow==fast
+            if slow==fast:
+                return True
+        return False
+    
+    #space complexity O(1)
+    #Time complexity O(N+M) ~O(N) is the number of nodes
         
         
         
