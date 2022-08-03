@@ -11,22 +11,29 @@ class Solution(object):
         :type targetSum: int
         :rtype: List[List[int]]
         """
-        if root is None:
-            return []
         
-        stack = [[root,[str(root.val)],targetSum-root.val]]
-        res = []
-        while stack:
-            curr, currpath, currsum = stack.pop()
-           
-            if not curr.left and not curr.right and currsum == 0:
-                res.append(currpath)
-            if curr.right:
-                stack.append([curr.right,currpath + [curr.right.val], currsum - curr.right.val])
-            if curr.left:
-                stack.append([curr.left,currpath + [curr.left.val], currsum - curr.left.val])
-        return res
+        result = []
+        self.pathSumHelper(root,[],targetSum, result)
+        return result
+    
+        
+        
+    def pathSumHelper(self,root,path, needsum,result):
+        if not root:
+            return 
+        
+        if not root.left and not root.right and needsum == root.val:
+            path.append(root.val)
+            result.append(path)
+        self.pathSumHelper(root.left,path + [root.val],needsum - root.val,result)
+        self.pathSumHelper(root.right,path + [root.val],needsum - root.val,result)
+        
             
+            
+            
+        
+         
+        
        
         
         
