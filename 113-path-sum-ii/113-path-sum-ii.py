@@ -17,13 +17,13 @@ class Solution(object):
 
             if not root.left and not root.right and needsum == root.val:
                 path.append(root.val)
-                self.result.append(path)
+                result.append(path)
             pathSumHelper(root.left,path + [root.val],needsum - root.val)
             pathSumHelper(root.right,path + [root.val],needsum - root.val)
         
-        self.result = []
+        result = []
         pathSumHelper(root,[],targetSum)
-        return self.result
+        return result
     
         
         
