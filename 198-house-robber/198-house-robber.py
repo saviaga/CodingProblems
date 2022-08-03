@@ -5,20 +5,16 @@ class Solution(object):
         :rtype: int
         """
         
-        if not nums:
-            return 
-        elif len(nums) == 1:
-            return nums[0]
-        
-        
+
+        #[rob1,rob2,n,n+1..]
     
-        rob_curr, prev = 0, 0
-        for money in nums:
+        rob1, rob2 = 0, 0
+        for n in nums:
         
-            temp = prev
-            prev = max(rob_curr, prev)
-            rob_curr = temp + money
-        return max(rob_curr, prev)
+            temp = max(n + rob1, rob2) #imagine we are in n position, we have two choices
+            rob1 = rob2 #iterate n+1 we want to update rob1 to advance to rob2
+            rob2 = temp #the choice we made in n
+        return rob2
    
     
     
