@@ -4,25 +4,24 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        
-        def permuteHelper(nums,chosen):
-            if len(nums)==0:
-                print(chosen)
+        def permuteHelper(numbers, chosen):
+            if len(numbers)==0:
                 res.append(chosen[:])
-            else:
                 
-                for i in range(len(nums)):  
-                    
-                    #choose
-                    element = nums[i]
-                    chosen.append(element)
-                    nums.remove(element)
+            else:
+                for i in range(len(nums)):
+                    #chose
+                    c = nums[i]
+                    chosen.append(c)
+                    del nums[i]
                     #explore
-                    permuteHelper(nums,chosen)
-                    #unchose
-                    nums.insert(i,element)
+                    permuteHelper(numbers,chosen)
+                    nums.insert(i,c)
+                    #unchoose
                     chosen.pop()
-        res = []            
+        
+        
+        
+        res = []
         permuteHelper(nums,[])
         return res
-        
