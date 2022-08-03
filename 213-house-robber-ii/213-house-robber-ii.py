@@ -5,11 +5,11 @@ class Solution(object):
         :rtype: int
         """
         
-        def robhelper(subnums):
+        def robhelper(nums):
             
             
             rob1, rob2 = 0, 0
-            for n in subnums:
+            for n in nums:
 
                 temp = max(n + rob1, rob2) #imagine we are in n position, we have two choices
                 rob1 = rob2 #iterate n+1 we want to update rob1 to advance to rob2
