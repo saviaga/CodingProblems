@@ -11,18 +11,22 @@ class Solution(object):
         :type val: int
         :rtype: TreeNode
         """
+        current = root
         
-        
-        
-        if root==None:
-            return  TreeNode(val)
-            
-        if val< root.val:
-                root.left = self.insertIntoBST(root.left,val)
-        else:
-                root.right = self.insertIntoBST(root.right,val)
-            
-        return root
+        while current:
+            if val < current.val:
+                if current.left:
+                    current = current.left
+                else:
+                    current.left = TreeNode(val)
+                    return root
+            else:
+                if current.right:
+                    current = current.right
+                else:
+                    current.right = TreeNode(val)
+                    return root
+        return TreeNode(val)
             
             
             
