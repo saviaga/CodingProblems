@@ -5,24 +5,19 @@ class Solution(object):
         :rtype: int
         """
         
-        
-        def robhelper(newnums):
-            #print(newnums)
-            m = [0]*len(nums)
-        
-       
-            if len(nums)==1:
-                return nums[0]
-            m[0] = nums[0]
-            m[1] = max(nums[0],nums[1])
-            for i in range(2,len(nums)):
-
-                m[i] = max((nums[i]+m[i-2]), m[i-1])
-            return m[-1]
+        if not nums:
+            return 
+        elif len(nums) == 1:
+            return nums[0]
         
         
+        rob, not_rob = 0, 0
+        for num in nums:
+            rob, not_rob = not_rob + num, max(rob, not_rob)
+        return max(rob, not_rob)
         
-        return max(robhelper(nums[1:]), robhelper(nums[:-1]))
+        
+   
     
     
         
