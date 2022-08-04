@@ -7,12 +7,17 @@ class Solution(object):
             start=0
             end = 0
             max_c_ones = 0
-            while end< len(nums):
+            while end< len(nums) and start<len(nums):
            
-                if nums[end] == 0:
-                    start=end+1
-                else:
-                    max_c_ones= max(max_c_ones,(end-start)+1)
-                end+=1
+                while start<len(nums) and  nums[start] == 0: #move start while there are 0
+                    start+=1
+                
+                end=start
+                #if it is not zero we can start countin 1s
+                while end < len(nums) and  nums[end]==1:
+                    end+=1
+                
+                max_c_ones= max(max_c_ones,end-start)
+                start=end
             
             return max_c_ones
