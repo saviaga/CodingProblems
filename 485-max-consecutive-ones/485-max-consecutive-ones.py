@@ -10,8 +10,9 @@ class Solution(object):
         for n in nums:
             if n == 1:
                 count+=1
+                max_c_ones=max(max_c_ones,count)
             else:
                 
-                max_c_ones=max(max_c_ones,count)
+                
                 count=0
-        return max(max_c_ones,count)
+        return max_c_ones
