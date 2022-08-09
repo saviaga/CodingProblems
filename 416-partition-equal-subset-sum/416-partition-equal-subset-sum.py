@@ -11,14 +11,12 @@ class Solution(object):
         
         #construct dp
         dp = [[False for x in range(subset_sum + 1)] for y in range(n + 1)]
-        
-        for i in range(n+1):
+        dp[0][0] = True
+        for i in range(1,n+1):
             for j in range(subset_sum + 1):
                 
-                if i==0 or j==0:
-                    dp[i][j] = False
                
-                elif nums[i-1] > j: #if i cannot include it, then don't
+                if nums[i-1] > j: #if i cannot include it, then don't
                     dp[i][j] = dp[i-1][j]
                     
                 elif nums[i-1] == j:
