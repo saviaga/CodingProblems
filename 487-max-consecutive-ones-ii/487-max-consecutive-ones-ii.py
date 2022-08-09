@@ -7,15 +7,16 @@ class Solution(object):
         
         curr_zero = 0
         max_ones = 0
-        can_change = True
         start = 0
-        for end in range(len(nums)):
+        end=0
+        while end < len(nums): # while our window is in bounds
            
-            if nums[end]==0 and can_change:
-                can_change = False
-                curr_zero = end
-            elif nums[end]==0 and not can_change:
-                start = curr_zero+1
-                curr_zero = end
+            if nums[end]== 0:  # add the right most element into our window
+                curr_zero+=1
+            while curr_zero==2:
+                if nums[start] == 0:    
+                    curr_zero-=1
+                start+=1
             max_ones = max(max_ones,end-start+1)
+            end+=1
         return max_ones
