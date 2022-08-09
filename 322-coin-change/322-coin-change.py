@@ -5,17 +5,19 @@ class Solution(object):
         :type amount: int
         :rtype: int
         """
-        dp = [float('inf')]*(amount+1)
+        
+        dp = [amount+1]*(amount+1)
         dp[0] = 0
+        
+        
         for c in coins:
-            for i in range(c,amount+1):
-                dp[i] = min(dp[i],dp[i-c]+1)
-                
-        if dp[amount]!=float('inf'):
+            for a in range(c,amount+1):
+                    
+                    dp[a] = min(dp[a],dp[a-c]+1)
+                 
+       
+        if dp[amount]!=amount+1:
             return dp[amount]
         else:
             return -1
-                
-                
-            
-            
+        
