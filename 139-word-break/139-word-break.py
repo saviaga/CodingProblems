@@ -6,11 +6,11 @@ class Solution(object):
         :rtype: bool
         """
         word_set = set(wordDict)
-        q = []
+        q = deque()
         visited = set()
         q.append(0)
         while q:
-            start = q.pop()
+            start = q.popleft()
             if start in visited:
                 continue
             for end in range(start + 1, len(s) + 1):
