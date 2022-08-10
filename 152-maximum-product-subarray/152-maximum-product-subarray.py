@@ -4,20 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-
-        max_so_far = nums[0]
-        min_so_far = nums[0]       
-        result = max_so_far
+        max_sofar = nums[0]
+        min_sofar = nums[0]
+        result = max_sofar
         
-        for i in range(1,len(nums)):
+        for i in range (1,len(nums)):
+            temp = max(nums[i],nums[i]*min_sofar, nums[i]*max_sofar)
+            min_sofar =  min(nums[i],nums[i]*min_sofar, nums[i]*max_sofar)
+            max_sofar = temp
             
-            curr =nums[i]
-            temp_max = max(curr,curr*max_so_far, curr*min_so_far)
-            min_so_far = min(curr,curr*min_so_far, curr*max_so_far)
-            
-            max_so_far = temp_max
-            result = max(result, temp_max)
-
-       
+            result = max(result,max_sofar)
         return result
         
