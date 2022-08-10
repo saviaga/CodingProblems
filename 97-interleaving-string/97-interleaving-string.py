@@ -17,10 +17,10 @@ class Solution(object):
                 if i == 0 and j == 0:
                     T[i][j] = True
                 
-                elif i == 0:
+                elif i == 0 and j!=0:
                     T[i][j] = T[i][j-1] and (s3[l] == s2[j-1])
                          
-                elif j == 0:
+                elif j == 0 and i!=0:
                     T[i][j] = T[i-1][j] and (s3[l] == s1[i-1])
                          
                 else:
