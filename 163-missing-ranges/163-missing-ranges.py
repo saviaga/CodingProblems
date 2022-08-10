@@ -8,14 +8,13 @@ class Solution(object):
         """
         prev = lower-1
         nums
+
         res = []
         for i in range(len(nums)+1):
             if i < len(nums):
-                curr = nums[i]
-                
+                curr = nums[i]                
             else:
-                curr = upper + 1
-          
+                curr = upper + 1          
 
             if prev+1 < curr-1:
                 res.append(str(prev+1) + "->" + str(curr-1))
