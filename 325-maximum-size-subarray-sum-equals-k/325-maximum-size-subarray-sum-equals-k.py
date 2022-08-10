@@ -6,14 +6,14 @@ class Solution(object):
         :rtype: int
         """
         prefix_sum = longest_sub = 0
-        indices = {}
+        indices = {0:-1}
         
         for i, num in enumerate(nums):
             prefix_sum += num
             
             # Check if all of the numbers seen so far sum to k.
-            if prefix_sum == k:
-                longest_sub = i + 1
+         #   if prefix_sum == k:
+         #       longest_sub = i + 1
                 
             # If any subarray seen so far sums to k, then
             # update the length of the longest_subarray. 
