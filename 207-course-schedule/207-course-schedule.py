@@ -1,16 +1,16 @@
 class Solution(object):
     def isCyclic(self, adj, visited,curr): #-1 cycle, 1 = visited, 
-        # if ith node is marked as being visited, then a cycle is found
-        if visited[curr] == -1: return False
-        if visited[curr] == 1:  return True# if it is done visted, then do not visit again
+        
+        if visited[curr] == 1: return False # if ith node is marked as visiting, then a cycle is found
+        if visited[curr] == 2:  return True# if it is processed, then do not visit again
 
-        visited[curr] = -1 # mark as being visited
+        visited[curr] = 1 # mark as visiting
         
         for j in adj[curr]: # visit all the neighbours
             if not self.isCyclic(adj, visited, j):
                 return False
         
-        visited[curr] = 1 # after visit all the neighbours, mark it as done visited
+        visited[curr] = 2 # after visit all the neighbours, mark it as processed
         return True
                 
         
@@ -32,4 +32,6 @@ class Solution(object):
     
         return True
         
-        
+#if node v has not been visited, then mark it as 0.
+#if node v is being visited, then mark it as 1. If we find a vertex marked as 1 in DFS, then their is a ring.
+#if node v has been visited, then mark it as 2. If a vertex was marked as 2, then no ring contains v or its successors.        
