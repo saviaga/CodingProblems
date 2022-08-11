@@ -16,7 +16,7 @@ class Solution(object):
         
        
         
-        for i in range(len(lstnum)-1):
+        for i in range(len(lstnum)-1): #we do not check the last nubmer is our need to swap
             max_num = max(lstnum[i+1:])
             
             if max_num > lstnum[i]:
