@@ -13,6 +13,7 @@ class Solution(object):
             q = deque()
             q.append((i,0))
 
+            #bfs
             while q:
                     node,color = q.popleft()
                     if col[node] == -1:
