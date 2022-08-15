@@ -20,7 +20,7 @@ class Solution(object):
                         col[node] = color
                         for ch in graph[node]:
                             q.append((ch,color^1))
-                    if col[node]!=color:
+                    elif col[node]!=color:
                         return False
         return True
             
