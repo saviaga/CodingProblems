@@ -9,15 +9,15 @@ class Solution:
         self.total = total
       
     def pickIndex(self) -> int:
-        target = random.uniform(0,self.total)
-        print(target)
+        target = random.randint(1,self.total)
+        
         start= 0
         end = len(self.prefix_sums)-1
         while start < end: 
             mid = start + (end-start)//2
             if self.prefix_sums[mid] < target: 
                 start = mid + 1
-            elif self.prefix_sums[mid] > target: 
+            else: 
                 end = mid 
 
         return end
