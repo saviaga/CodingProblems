@@ -54,11 +54,12 @@ class Solution(object):
         
         while queue:
             for i in range(len(queue)):
-                nested = queue.pop()
-                if nested.isInteger():
+                nested = queue.popleft()
+                
+                if nested.getInteger():
                     total += nested.getInteger() * depth
                 else:
-                    queue.extendleft(nested.getList())
+                    queue.extend(nested.getList())
             depth += 1
 
         return total                
