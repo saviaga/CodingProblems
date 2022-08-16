@@ -17,7 +17,7 @@ class Solution:
             mid = start + (end-start)//2
             if self.prefix_sums[mid] < target: 
                 start = mid + 1
-            else: 
+            elif self.prefix_sums[mid] > target: 
                 end = mid 
 
         return end
