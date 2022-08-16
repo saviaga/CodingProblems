@@ -10,7 +10,7 @@ class Solution:
       
     def pickIndex(self) -> int:
         target = random.uniform(0,self.total)
-        
+        print(target)
         start= 0
         end = len(self.prefix_sums)-1
         while start < end: 
