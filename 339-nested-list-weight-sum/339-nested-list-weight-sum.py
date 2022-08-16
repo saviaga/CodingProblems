@@ -57,9 +57,11 @@ class Solution(object):
                 nested = queue.popleft()
                 
                 if nested.getInteger():
+                  
                     total += nested.getInteger() * depth
                 else:
                     queue.extend(nested.getList())
+                    
             depth += 1
 
         return total                
