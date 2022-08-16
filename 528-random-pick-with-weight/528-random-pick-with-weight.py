@@ -10,7 +10,7 @@ class Solution:
        # print("ccc",self.prefix_sums)
     def pickIndex(self) -> int:
         target = random.random()*self.total_sum
-        #print(target)
+        print(target)
         # run a linear search to find the target zone
         for i, prefix_sum in enumerate(self.prefix_sums):
             if target < prefix_sum:
