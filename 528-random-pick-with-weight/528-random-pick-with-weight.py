@@ -2,21 +2,25 @@ class Solution:
 
     def __init__(self, w: List[int]):
         self.prefix_sums=[]
-        prefix_sum = 0
+        total = 0
         for weight in w:
-            prefix_sum+=weight
-            self.prefix_sums.append(prefix_sum)
-        self.total_sum = prefix_sum
-       # print("ccc",self.prefix_sums)
+            total+=weight
+            self.prefix_sums.append(total)
+        self.total = total
+      
     def pickIndex(self) -> int:
-        target = random.randint(1,self.total_sum)
-        #print(target)
-        # run a linear search to find the target zone
+        target = random.uniform(0,self.total)
         
-        for i, prefix_sum in enumerate(self.prefix_sums):
-            if target <= prefix_sum:
-                return i
-                
+        start= 0
+        end = len(self.prefix_sums)-1
+        while start < end: 
+            mid = start + (end-start)//2
+            if self.prefix_sums[mid] < target: 
+                start = mid + 1
+            else: 
+                end = mid 
+
+        return end
         
 
 
