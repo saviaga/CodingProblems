@@ -6,8 +6,9 @@ class Solution(object):
         """
         stack = []
         path_list = path.split('/')
-        
+       
         for elem in path_list:
+         
             if elem == '..':
                 if stack:
                     stack.pop()
@@ -15,6 +16,8 @@ class Solution(object):
                 continue
             else:
                 stack.append(elem)
+            
+                
         return '/' + '/'.join(stack)
         
         
