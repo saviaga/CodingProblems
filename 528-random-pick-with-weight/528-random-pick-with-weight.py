@@ -12,7 +12,7 @@ class Solution:
         target = random.uniform(0,self.total)
         
         start= 0
-        end = len(self.prefix_sums)
+        end = len(self.prefix_sums)-1
         while start < end: 
             mid = start + (end-start)//2
             if self.prefix_sums[mid] < target: 
