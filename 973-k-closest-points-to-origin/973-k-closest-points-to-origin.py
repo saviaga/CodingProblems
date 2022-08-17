@@ -6,11 +6,13 @@ class Solution:
             
             return math.sqrt((x1-0)**2+(x2-0)**2)
 
-        import queue
-        distances = queue.PriorityQueue()
+       
+        distances = []
         for p in points:
-            distances.put((get_eucledian(p),p))
+            heapq.heappush(distances,(get_eucledian(p),p))
         
-        
-        return [distances.get()[1] for _ in range(k)]
+   
+        return [heapq.heappop(distances)[1]  for _ in range(k)]
+  
+            
    
