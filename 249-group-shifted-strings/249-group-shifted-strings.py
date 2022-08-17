@@ -4,10 +4,10 @@ class Solution(object):
         :type strings: List[str]
         :rtype: List[List[str]]
         """
-        def get_key(s):
+        def get_key(string):
             key = tuple()
-            for i in range(1,len(s)):
-                key+=((ord(s[i])-ord(s[i-1]))%26,)
+            for i in range(1,len(string)):
+                 key+=((ord(s[i])-ord(s[i-1]))%26,)
             return key
                 
      
@@ -15,4 +15,4 @@ class Solution(object):
         for s in strings:
             key = get_key(s)
             hashmap[key].append(s)
-        return list(hashmap.values())
+        return hashmap.values()
