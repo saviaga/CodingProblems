@@ -1,11 +1,5 @@
-class Solution(object):
-    def coinChange(self, coins, amount):
-        """
-        :type coins: List[int]
-        :type amount: int
-        :rtype: int
-        """
-        
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [amount+1]*(amount+1)
         dp[0] = 0
         
@@ -20,4 +14,5 @@ class Solution(object):
             return dp[amount]
         else:
             return -1
+        
         
