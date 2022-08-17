@@ -14,7 +14,7 @@ class Solution(object):
                 val+= places
                 
         rotation = val%len(s)
-        print(rotation)
+       
         res=''
         if rotation<0: #rotate to the left
             res= s[rotation:] + s[:rotation]  
