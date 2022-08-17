@@ -20,7 +20,7 @@ class SparseVector:
         print(vec)
         result=0
         for k,v in self.nonzeros.items():
-            if k in vec.nonzeros and vec.nonzeros[k]:
+            if k in vec.nonzeros:
                 result+= v*vec.nonzeros[k]
         return result
             
