@@ -9,10 +9,15 @@ class Solution:
        
         distances = []
         for p in points:
-            heapq.heappush(distances,(get_eucledian(p),p))
+            distances.append((get_eucledian(p),p))
+        heapq.heapify(distances)
         
    
         return [heapq.heappop(distances)[1]  for _ in range(k)]
+
+        #time: O(N + KlogN) -> N to get the distances, and KlogN for the heap (each pop is logN and there are K elements)
+    
+        #space O(N)
   
             
    
