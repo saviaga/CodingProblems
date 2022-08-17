@@ -4,10 +4,10 @@ class SparseVector:
         :type nums: List[int]
         """
         #get the index and values of non-zeros
-        self.nonzeros = {}
+        self.nonzeros = []
         for i,v in enumerate(nums):
             if v!=0:
-                self.nonzeros[i] = v
+                self.nonzeros.append((i,v))
                 
         
 
@@ -17,12 +17,22 @@ class SparseVector:
         :type vec: 'SparseVector'
         :rtype: int
         """
-       
-        result=0
-        for k,v in self.nonzeros.items():
-            if k in vec.nonzeros:
-                result+= v*vec.nonzeros[k]
-        return result
+        i=0
+        j=0
+        dot_product=0
+        while i < len(self.nonzeros) and j<len(vec.nonzeros):
+            i_idx, i_num = self.nonzeros[i]
+            j_idx, j_num = vec.nonzeros[j]
+            
+            if i_idx==j_idx:
+                dot_product+= i_num*j_num
+                i+=1
+                j+=1
+            elif i_idx>j_idx:
+                j+=1
+            else:
+                i+=1
+        return dot_product
             
         
         
