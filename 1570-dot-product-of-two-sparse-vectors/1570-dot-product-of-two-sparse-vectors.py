@@ -17,6 +17,7 @@ class SparseVector:
         :type vec: 'SparseVector'
         :rtype: int
         """
+        print(vec)
         result=0
         for k,v in self.nonzeros.items():
             if k in vec.nonzeros:
