@@ -28,9 +28,9 @@ class Solution(object):
             encoded1[i][1]-=freq
             encoded2[j][1]-=freq
             
-            if freq1== 0:
+            if freq1==0:
                 i+=1
-            if freq2== 0:
+            if freq2==0:
                 j+=1
         return res
             
