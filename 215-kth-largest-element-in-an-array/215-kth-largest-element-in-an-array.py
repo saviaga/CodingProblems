@@ -6,6 +6,9 @@ class Solution(object):
         :rtype: int
         """
         def partition(start, end):
+            #To get better performance on sorted or nearly sorted data we randomize 
+            #by random sampling of one of the array elements as the pivot.
+            #we swap the selected item with the last element
             
             ran = random.randint(start, end)
             pivot = end
