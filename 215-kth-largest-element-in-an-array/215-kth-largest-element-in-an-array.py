@@ -6,7 +6,10 @@ class Solution(object):
         :rtype: int
         """
         def partition(start, end):
+            
+            ran = random.randint(start, end)
             pivot = end
+            nums[pivot], nums[ran] = nums[ran], nums[pivot]
      
             # Index of smaller element
             border = start
