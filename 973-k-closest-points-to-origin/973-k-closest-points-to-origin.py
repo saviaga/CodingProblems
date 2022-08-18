@@ -11,15 +11,14 @@ class Solution:
         for p in points:
             distances.append((get_eucledian(p),p))
         
-        #print(distances)
         top_k = []
         for elem in distances:
             if len(top_k)<k:
                 heapq.heappush(top_k, (elem[0]*(-1), elem[1]))
+                
             else:
                 heapq.heappush(top_k, (elem[0]*(-1), elem[1]))
                 heapq.heappop(top_k)
-            #print(top_k)
         
         return [elem[1] for elem in top_k]
 
