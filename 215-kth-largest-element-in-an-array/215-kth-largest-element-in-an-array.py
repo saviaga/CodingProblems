@@ -24,7 +24,7 @@ class Solution(object):
             nums[border], nums[pivot] = nums[pivot], nums[border]
             return border
 
-        def select(start, end, k_largest):
+        def quickselect(start, end, k_largest):
             """
             Returns the k-th smallest element of list within left..right
             """
@@ -48,6 +48,6 @@ class Solution(object):
             # kth largest is (n - k)th smallest 
             return nums[k_largest]
         
-        return select(0, len(nums)-1, k-1)
+        return quickselect(0, len(nums)-1, k-1)
         
         
