@@ -13,8 +13,7 @@ class Solution:
         for c in t:
             countT[c] = 1+ countT.get(c,0)
         have,need =0,len(countT)
-        print((countT))
-        print(len(t))
+        
         for end in range(len(s)):
             ch = s[end]
             window[ch]=1+window.get(ch,0)
