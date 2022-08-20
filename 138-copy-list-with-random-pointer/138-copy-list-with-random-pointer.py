@@ -14,8 +14,6 @@ class Solution:
             return head
         
         curr = head
-        
-        
         #first pass insert the new_nodes A->A'
         while curr:
             new_node = Node(curr.val)
