@@ -16,21 +16,18 @@ class Solution:
         
         for end in range(len(s)):
             ch = s[end]
+            window[ch]=1+window.get(ch,0)
             
-            if ch in countT: 
-                window[ch]=1+window.get(ch,0)
-            
-                if window[ch]==countT[ch]:
-                    have+=1
+            if ch in countT and window[ch]==countT[ch]:
+                have+=1
             while have==need:
                 window_size = end-start+1
                 if window_size < reslen:
                     res=[start,end]
                     reslen = window_size
-                if s[start] in countT:
-                        window[s[start]]-=1
-                        if window[s[start]] < countT[s[start]]:
-                            have-=1
+                window[s[start]]-=1
+                if s[start] in countT and window[s[start]] < countT[s[start]]:
+                    have-=1
                 start+=1
             
         start,end = res
