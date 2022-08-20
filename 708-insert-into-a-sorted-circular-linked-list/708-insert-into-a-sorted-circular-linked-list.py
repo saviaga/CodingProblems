@@ -35,8 +35,9 @@ class Solution:
             curr = curr.next
 
         # Insert node.
+        prev.next = node 
         node.next = curr
-        prev.next = node           
+                  
         
         return head
 
