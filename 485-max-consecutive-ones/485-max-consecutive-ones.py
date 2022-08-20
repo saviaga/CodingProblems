@@ -8,15 +8,13 @@ class Solution:
                 
                 if nums[end]==1:
                     count+=1
-                    
                 else:
-                    
+                    max_count=max(max_count,count)   
                     count=0
-                    start=end+1
-                max_count=max(max_count,count)   
                 
                 
-            return max_count
+                
+            return max(max_count,count)   
                 
                 
                 
