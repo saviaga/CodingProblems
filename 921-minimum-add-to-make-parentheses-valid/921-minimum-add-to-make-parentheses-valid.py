@@ -8,11 +8,14 @@ class Solution:
             if elem =='(': 
                 opening+=1
             else:
-                opening-=1
-            if opening ==-1:
-                to_valid+=1
-                opening+=1
-            
+                
+                if opening >0:
+                    opening-=1
+                else:
+                    to_valid+=1
+                    
+        
+        print('f')
         return to_valid+opening
                     
         
