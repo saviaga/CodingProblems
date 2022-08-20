@@ -7,11 +7,9 @@ class Solution:
         for elem in s:
             if elem =='(': 
                 opening+=1
-            else:
-                
-                if opening >0:
+            elif opening >0:
                     opening-=1
-                else:
+            else:
                     to_valid+=1
                     
         
