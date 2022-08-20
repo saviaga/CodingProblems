@@ -1,7 +1,7 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         
-        count=0
+        
         stack = []
         for elem in s:
             if elem =='(': 
@@ -11,7 +11,6 @@ class Solution:
                     stack.pop()
                 else:
                     stack.append(elem)
-                    
         return len(stack)
                     
         
