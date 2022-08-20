@@ -1,7 +1,7 @@
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         
-        curr_zeros = 0
+       
         result = 0
         start = 0
         k=1
