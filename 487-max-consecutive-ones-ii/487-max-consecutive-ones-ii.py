@@ -2,7 +2,7 @@ class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         
   
-        result = 0
+        max_ones = 0
         start = 0
         k=1
 
@@ -13,6 +13,6 @@ class Solution:
                 if nums[start]==0:
                     k+=1
                 start+=1
-            result = max(result,end-start+1)
-        return result
+            max_ones = max(max_ones,end-start+1)
+        return max_ones
             
