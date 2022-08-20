@@ -29,8 +29,8 @@ class Solution:
                     reslen = window_size
                 if s[start] in countT:
                     window[s[start]]-=1
-                if s[start] in countT and window[s[start]] < countT[s[start]]:
-                    have-=1
+                    if window[s[start]] < countT[s[start]]:
+                        have-=1
                 start+=1
     
         start,end = res
