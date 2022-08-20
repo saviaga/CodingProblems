@@ -4,16 +4,14 @@ class Solution:
         count=0
         stack = []
         for elem in s:
-            if elem =='(':
+            if elem =='(': 
                 stack.append(elem)
-            
-            elif elem ==')':
-                if stack and stack[-1] =='(':
+            else:
+                if stack and stack[-1] =='(': 
                     stack.pop()
                 else:
-                    if stack:
-                        stack.pop()
-                    count+=1
-        return count+len(stack)
+                    stack.append(elem)
+                    
+        return len(stack)
                     
         
