@@ -2,15 +2,17 @@ class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         
         
-        stack = []
+        opening = 0
+        to_valid = 0
         for elem in s:
             if elem =='(': 
-                stack.append(elem)
+                opening+=1
             else:
-                if stack and stack[-1] =='(': 
-                    stack.pop()
-                else:
-                    stack.append(elem)
-        return len(stack)
+                opening-=1
+            if opening ==-1:
+                to_valid+=1
+                opening+=1
+            
+        return to_valid+opening
                     
         
