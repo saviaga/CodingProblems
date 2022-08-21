@@ -23,17 +23,22 @@ class Solution:
         return self.first
     
     def inorder_helper(self,node):
-        if node :
-            self.inorder_helper(node.left)
+        if node==None:
+            return
         
-            if not self.last:
-                self.first = node
-            else:
-                node.left = self.last
-                self.last.right = node
-                
-            self.last = node
-            self.inorder_helper(node.right)
+        #go left
+        self.inorder_helper(node.left)
+        
+        #process current
+        if not self.last:
+            self.first = node
+        else:
+            node.left = self.last
+            self.last.right = node
+        self.last = node
+        
+        #go rignt
+        self.inorder_helper(node.right)
         
         
         
