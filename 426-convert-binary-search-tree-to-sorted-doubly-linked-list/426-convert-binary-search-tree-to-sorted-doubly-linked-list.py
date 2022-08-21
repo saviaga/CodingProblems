@@ -12,7 +12,7 @@ class Solution:
         if root==None:
             return None
         
-        self.first=None
+        self.first=None 
         self.last=None
         
         self.inorder_helper(root)
@@ -39,6 +39,10 @@ class Solution:
         
         #go rignt
         self.inorder_helper(node.right)
+        
+        
+        #TimeO(N)
+        #Space O(N) inbalanced tree (recursive stack) or O(logN) best case, the height of the tree
         
         
         
