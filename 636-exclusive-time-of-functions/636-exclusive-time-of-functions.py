@@ -12,14 +12,13 @@ class Solution:
 
             if status=='start':
                 
-                
                 if stack:
                     ans[stack[-1]]+=timestamp-lastlogTime
                     lastlogTime = timestamp
                 stack.append(log_id)
             else:
-                    timestamp=timestamp+1 #to count for ending timestap at end of the time
-                    ans[stack.pop()]+=timestamp-lastlogTime
+                    timestamp=timestamp+1 #to count for ending timestap at end of the time    
+                    ans[stack.pop()]+=timestamp-lastlogTime     
                     lastlogTime = timestamp
                     
             
