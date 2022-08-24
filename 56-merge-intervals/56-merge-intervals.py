@@ -1,21 +1,20 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        res =[]
-        intervals.sort(reverse=True)
-
-        while intervals:
+        
+        stack=[]
+        intervals.sort()
+        for elem in intervals:
             
-            current = intervals.pop()
-            
-            start = current[0]
-            end = current[1]
-            
-            if intervals and (intervals[-1][0]<= end):
-                next_i = intervals.pop()
-                intervals.append([start,max(end,next_i[1])])
-
+            if stack:
+                if stack[-1][1]>=elem[0]:
+                    top=stack.pop()
+                    new_beg = min(top[0],elem[0])
+                    new_end = max(top[1],elem[1])
+                    stack.append([new_beg,new_end])
+                else:
+                    stack.append(elem)
             else:
-                res.append(current)
-        return res
+                stack.append(elem)
                 
-                
+        return stack
+        
