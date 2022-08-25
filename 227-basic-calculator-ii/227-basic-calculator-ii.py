@@ -1,32 +1,38 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        
-        curr, prev, result = 0, 0, 0
+        i=0
+        cur, prev, res = 0, 0, 0
         cur_operator =  '+'
-        for i in range(len(s) + 1):
-            if i < len(s):
-                c = s[i]
-            else:
-                c = '+'
-
-            if c == ' ': 
-                continue
-            if c.isdigit():
-                curr = 10 * curr + int(c)
-                continue
-
-            if cur_operator == '+':
-                result += prev
-                prev = curr
-            elif cur_operator == '-':
-                result += prev
-                prev = -curr
-            elif cur_operator == '*':
-                prev = prev * curr
-            elif cur_operator == '/':
-                prev = int(prev / curr)
-            curr, cur_operator = 0, c
-        return result + prev                
+        
+        while i<len(s):
+            cur_char = s[i]
+            
+            if cur_char.isdigit():
+                while i<len(s) and s[i].isdigit():
+                    cur=cur*10+int(s[i])
+                    i+=1
+                i-=1
+               
+           
+                if cur_operator == '+':
+                    res += cur
+                    prev = cur
+                elif cur_operator == '-':
+                    res -= cur
+                    prev = -cur
+                elif cur_operator == '*':
+                    res -= prev
+                    res += prev * cur
+                    prev = cur * prev
+                elif cur_operator == '/':
+                    res -= prev
+                    res += int(prev/cur)
+                    prev = int(prev/cur)
+                cur = 0
+            elif cur_char!=" ":
+                cur_operator = cur_char
+            i+=1
+        return res            
             
                 
         
