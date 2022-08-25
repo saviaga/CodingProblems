@@ -31,9 +31,9 @@ class Solution:
                 temp=[]
                 if len(res[i])>1:
                     res[i].sort()
-                    for elem in res[i]:
-                        temp.append(elem[1])
-                    all_levels.append(temp)  
+                 #   for elem in res[i]:
+                 #       temp.append(elem[1])
+                    all_levels.append(map(lambda x:x[1],res[i]))  
                 else:
                     all_levels.append([res[i][0][1]])
                 
