@@ -2,6 +2,7 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         
         stack=[]
+
         intervals.sort()
         for elem in intervals:
             
