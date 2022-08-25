@@ -49,13 +49,12 @@ class Solution(object):
         """
         def dfs(nestedList,depth):
             total = 0
-            for nested in nestedList:
-                if nested.isInteger():
-                    total+= nested.getInteger()*depth
+            for elem in nestedList:
+                if elem.isInteger():
+                    total+= elem.getInteger() *depth
                 else:
-                    total += dfs(nested.getList(),depth+1)
+                    total+= dfs(elem.getList(),depth+1)
             return total
-        
 
         return   dfs(nestedList,1)             
             
