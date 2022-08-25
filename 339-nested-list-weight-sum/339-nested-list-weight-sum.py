@@ -56,7 +56,8 @@ class Solution(object):
                 if curr.isInteger():
                     total+= curr.getInteger()*depth
                 else:
-                    queue.extend(curr.getList())
+                    for elem in curr.getList():
+                        queue.append(elem)
             depth+=1
 
         
