@@ -11,15 +11,15 @@ class Solution:
             return
         
         queue = collections.deque([(root, 0, 0)]) #node, row, col
-        res = []  #works as dict but defaultdict never raises a KeyError.
+        res = defaultdict(list) #works as dict but defaultdict never raises a KeyError.
     
-        all_levels = defaultdict(list)
+        all_levels = [] #works as dict but defaultdict never raises a KeyError.
         min_col = 0
         max_col = 0
         while queue:
             for _ in range(len(queue)):
                 curr,row,col = queue.popleft()
-                res.append((col,row,curr.val,))
+                res[col].append((row,curr.val))
                 min_col = min(min_col,col)
                 max_col = max(max_col,col)
                 
@@ -27,15 +27,17 @@ class Solution:
                     queue.append((curr.left,row+1,col-1))
                 if curr.right:
                     queue.append((curr.right,row+1,col+1))
-                    
-        res.sort()
-
-        
-        for col,row,val in res:
-              
-                all_levels[col].append(val)
-        
-        return all_levels.values()
+        for i in range(min_col,max_col+1):
+                temp=[]
+                if len(res[i])>1:
+                    res[i].sort()
+                    for elem in res[i]:
+                        temp.append(elem[1])
+                    all_levels.append(temp)  
+                else:
+                    all_levels.append([res[i][0][1]])
+                
+        return all_levels
             
         
 
