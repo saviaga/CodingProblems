@@ -1,40 +1,31 @@
 class SparseVector:
-    def __init__(self, nums):
-        """
-        :type nums: List[int]
-        """
-        #get the index and values of non-zeros
-        self.nonzeros = []
-        for i,v in enumerate(nums):
-            if v!=0:
-                self.nonzeros.append((i,v))
-                
+    def __init__(self, nums: List[int]):
+        self.nonzeros=[]
+        for index,value in enumerate(nums):
+            if value!=0:
+                self.nonzeros.append((index,value))
         
 
     # Return the dotProduct of two sparse vectors
-    def dotProduct(self, vec):
-        """
-        :type vec: 'SparseVector'
-        :rtype: int
-        """
+    def dotProduct(self, vec: 'SparseVector') -> int:
+        result = 0
         i=0
         j=0
-        dot_product=0
         while i < len(self.nonzeros) and j<len(vec.nonzeros):
-            i_idx, i_num = self.nonzeros[i]
-            j_idx, j_num = vec.nonzeros[j]
-            
-            if i_idx==j_idx:
-                dot_product+= i_num*j_num
+            idx_i,valuei = self.nonzeros[i]
+            idx_j,valuej = vec.nonzeros[j]
+            if idx_i==idx_j:
+           
+                result+= valuei* valuej
                 i+=1
                 j+=1
-            elif i_idx>j_idx:
+            elif idx_i>idx_j:
                 j+=1
-            else:
+            elif idx_i<idx_j:
                 i+=1
-        return dot_product
-            
+        return result
         
+ #The “nums” part is an attribute on the SparseVector class. The question passes you another SparseVector class to do the dot product with. So self.nums refers to the current SparseVector and it’s numbers and the vec.nums refers to the other sparse vector class.       
         
 
 # Your SparseVector object will be instantiated and called as such:
