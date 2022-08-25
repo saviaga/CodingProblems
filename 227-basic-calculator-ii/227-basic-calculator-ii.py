@@ -5,9 +5,9 @@ class Solution:
         cur_operator =  '+'
         
         while i<len(s):
-            cur_char = s[i]
+           
             
-            if cur_char.isdigit():
+            if s[i].isdigit():
                 while i<len(s) and s[i].isdigit():
                     cur=cur*10+int(s[i])
                     i+=1
@@ -29,8 +29,8 @@ class Solution:
                     res += int(prev/cur)
                     prev = int(prev/cur)
                 cur = 0
-            elif cur_char!=" ":
-                cur_operator = cur_char
+            elif s[i]!=" ":
+                cur_operator = s[i]
             i+=1
         return res            
             
