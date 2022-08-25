@@ -2,7 +2,7 @@ class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         
         s= list(s)
-        res = []
+      
         stack = []
         #first pass append ( and pop it when ) if open parenteis are in stack
         for i  in range(len(s)):
@@ -21,7 +21,7 @@ class Solution:
         
         for elem in s:
             if elem!='X':
-                res.append(elem)
+                stack.append(elem)
         
-        return "".join(res)
+        return "".join(stack)
         
