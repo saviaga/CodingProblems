@@ -1,23 +1,16 @@
-class Solution(object):
-    def customSortString(self, order, s):
-        """
-        :type order: str
-        :type s: str
-        :rtype: str
-        """
-        dic_count = collections.Counter(s)
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        
+        dic_s = collections.Counter(s)
         res = []
-        
-            
+        for elem in order:
+            if elem in dic_s:
+                res.append(elem*dic_s[elem])
+                dic_s[elem]-=dic_s[elem]
        
-        for ch in order:
-            if ch in dic_count:
-                res.append(ch * dic_count[ch])
-                dic_count[ch]-=dic_count[ch]
-        
-        for key in dic_count:
-            res.append(key *dic_count[key])
-    
+        for key,val in dic_s.items():
+            
+            res.append(key*val)
         return "".join(res)
-            
-            
+        
+         
