@@ -14,9 +14,9 @@ class MovingAverage:
         tail = 0
         if self.count > self.size:
             tail = self.queue.popleft()
-        self.window_sum = self.window_sum - tail + val
+        #self.window_sum = self.window_sum - tail + val
 
-        return self.window_sum/min(self.size,self.count)
+        return sum(self.queue)/min(self.size,self.count)
         
 
 
