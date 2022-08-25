@@ -2,26 +2,28 @@ class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         
         s= list(s)
-      
-        stack = []
+        res = []
+        open_par = 0
         #first pass append ( and pop it when ) if open parenteis are in stack
         for i  in range(len(s)):
             if s[i] =='(':
-                stack.append(i)
+                open_par+=1
             elif s[i]==')':
-                if stack:
-                    stack.pop()
+                if open_par>0:
+                    open_par-=1
                 else:
                     s[i]='X'
         
         
-        while stack:
-                idx = stack.pop()
-                s[idx]='X'
+        for i in reversed(range(len(s))):
+                if s[i]=='(' and open_par>0:
+                    s[i]='X'
+                    open_par-=1
+                    
         
         for elem in s:
             if elem!='X':
-                stack.append(elem)
+                res.append(elem)
         
-        return "".join(stack)
+        return "".join(res)
         
