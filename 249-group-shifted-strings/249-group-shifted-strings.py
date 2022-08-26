@@ -16,3 +16,6 @@ class Solution:
             key = get_key(s)
             hashmap[key].append(s)
         return hashmap.values()
+    
+    #Time: O(N*K)
+    #Space O(N*K)
