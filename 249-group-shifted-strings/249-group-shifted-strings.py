@@ -3,8 +3,9 @@ class Solution:
         
         def get_key(string):
             key = tuple()
-            key = tuple((ord(s[i])-ord(s[i-1]))%26  for i in range(1,len(string)))
             
+            for i in range(1,len(string)):
+                key+=(str((ord(s[i])-ord(s[i-1]))%26),) #to count for ord(a)-ord(z)=-25%26=1
             return key
                 
      
