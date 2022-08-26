@@ -1,36 +1,23 @@
-class Solution(object):
-    def maximumSwap(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        if num<10:
-            return num
-        #save the largest
-        max_so_far = num
+class Solution:
+    def maximumSwap(self, num: int) -> int:
         
-
-        lstnum = [int(i) for i in str(num)]
-
-        #store indexes in dic
+        #2:i0, 7:i1,3:i2, 6:i3  
+        numsl = [elem for elem in str(num)]
+        dic_idx={}
         
-       
-        
-        for i in range(len(lstnum)-1): #we do not check the last nubmer is our need to swap
-            max_num = max(lstnum[i+1:])
+        for i in range(len(numsl)):
+            dic_idx[int(numsl[i])] = i
             
-            if max_num > lstnum[i]:
+        for i in range(len(numsl)):
+            for j in reversed(range(10)):
+                current = int(numsl[i])
+                if j > current and j in dic_idx and dic_idx[j]>i:
+                    numsl[i],numsl[dic_idx[j]] =numsl[dic_idx[j]],numsl[i]
+                   
+                    return int("".join(numsl))
+        return num
+                
+            
+        
                     
-                    for j in range(len(lstnum)-1, i, -1): #find the index of the max num starting from left
-                        if lstnum[j] == max_num:
-                            break
-                    lstnum[i],lstnum[j] = lstnum[j],lstnum[i]
-                    break
-                                    
-        return "".join([str(i) for i in lstnum])
-        
-            
-        
-            
-        
         
