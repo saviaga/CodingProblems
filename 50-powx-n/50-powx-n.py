@@ -4,7 +4,7 @@ class Solution:
         
         def myPowHelper(a,b):
             if b==0: return 1
-            if b==1: return a
+           
             temp = myPowHelper(a,b//2)
             
             if b%2==0:
