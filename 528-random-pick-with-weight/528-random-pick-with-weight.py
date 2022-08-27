@@ -7,18 +7,19 @@ class Solution:
             total+=weight
             self.prefix_sums.append(total)
         self.total = total
+
       
     def pickIndex(self) -> int:
-        target = random.randint(1,self.total)
+        target = random.uniform(0,self.total)
         start = 0
         end= len(self.prefix_sums)-1
         while start< end:
-            mid =start + (end-start)//2
+            mid =(start+end)//2
             if self.prefix_sums[mid] < target:
                 start = mid+1
-            elif self.prefix_sums[mid] >= target:
+            else:
                 end= mid
-        return end
+        return start
        
        
         
