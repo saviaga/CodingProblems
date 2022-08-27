@@ -16,7 +16,8 @@ class Solution:
                 curr = curr.right
             else: #if there is left tree
                 prev = curr.left 
-                while prev.right!=curr and prev.right!=None: #keep going to the right
+                while prev.right!=curr and prev.right: #keep going to the right
+
                     prev = prev.right
                 if  not prev.right:
                     prev.right=curr
