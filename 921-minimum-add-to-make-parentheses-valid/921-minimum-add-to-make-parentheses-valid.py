@@ -1,19 +1,15 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         
+        need_c = 0
+        open_p = 0
         
-        opening = 0
-        to_valid = 0
-        for elem in s:
-            if elem =='(': 
-                opening+=1
-            elif opening >0:
-                    opening-=1
-            else:
-                    to_valid+=1
-                    
-        
-        print('f')
-        return to_valid+opening
-                    
-        
+        for p in s:
+            if p=='(':
+                open_p+=1
+            elif p==')':
+                if open_p>0:
+                    open_p-=1
+                else:
+                    need_c+=1
+        return open_p+need_c
