@@ -13,17 +13,15 @@ class Solution:
         end=len(s)-1
         
         while start<=end:
-            
-            #condition 1
-            if s[start].isalnum() and s[end].isalnum():
-                if s[start].lower() != s[end].lower():
-                    return False
-            elif not s[start].isalnum():
+            if not s[start].isalnum():
                 start+=1
                 continue
             elif not s[end].isalnum():
                 end-=1
                 continue
+            #condition 1
+            elif s[start].lower() != s[end].lower():
+                    return False
             
             start+=1
             end-=1
