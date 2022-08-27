@@ -11,14 +11,14 @@ class Solution:
         
         while curr:
             #if not left, go to right
-            if curr.left==None:
+            if not curr.left:
                 res.append(curr.val)
                 curr = curr.right
             else: #if there is left tree
                 predecessor = curr.left 
                 while predecessor.right!=curr and predecessor.right!=None: #keep going to the right
                     predecessor = predecessor.right
-                if  predecessor.right==None:
+                if  not predecessor.right:
                     predecessor.right=curr
                     curr = curr.left
                 else:
