@@ -20,7 +20,7 @@ class Solution:
             i-=1
             j-=1
             
-        if carry:
+        if carry>0:
             res.appendleft(str(carry))
             
         return "".join(res)
