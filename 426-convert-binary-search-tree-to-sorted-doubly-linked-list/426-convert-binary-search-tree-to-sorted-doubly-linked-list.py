@@ -9,13 +9,25 @@ class Node:
 
 class Solution:
     def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if root==None:
+            return None
         
-        def inorder_helper(node):
+        self.first=None 
+        self.last=None
+        
+        self.inorder_helper(root)
+        
+        self.first.left = self.last
+        self.last.right = self.first
+        
+        return self.first
+    
+    def inorder_helper(self,node):
             if node==None:
                 return
 
             #go left
-            inorder_helper(node.left)
+            self.inorder_helper(node.left)
 
             #process current
             if not self.last:
@@ -26,21 +38,7 @@ class Solution:
             self.last = node
 
             #go rignt
-            inorder_helper(node.right)
-
-        if root==None:
-            return None
-        
-        self.first=None 
-        self.last=None
-        
-        inorder_helper(root)
-        
-        self.first.left = self.last
-        self.last.right = self.first
-        
-        return self.first
-    
+            self.inorder_helper(node.right)
         
         
         #TimeO(N)
