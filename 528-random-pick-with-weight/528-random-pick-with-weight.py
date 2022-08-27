@@ -1,17 +1,25 @@
 class Solution:
 
     def __init__(self, w: List[int]):
-        self.prefix_sum=[]
-        self.cum_sum=0
-        for elem in w:
-            self.cum_sum+=elem
-            self.prefix_sum.append(self.cum_sum)
+        self.prefix_sums=[]
+        total = 0
+        for weight in w:
+            total+=weight
+            self.prefix_sums.append(total)
+        self.total = total
       
     def pickIndex(self) -> int:
-        target = random.randint(1,self.cum_sum)
-        for i,value in enumerate(self.prefix_sum):
-            if target <= value:
-                return i
+        target = random.randint(1,self.total)
+        start = 0
+        end= len(self.prefix_sums)-1
+        while start< end:
+            mid =start + (end-start)//2
+            if self.prefix_sums[mid] < target:
+                start = mid+1
+            elif self.prefix_sums[mid] >= target:
+                end= mid
+        return end
+       
        
         
 
