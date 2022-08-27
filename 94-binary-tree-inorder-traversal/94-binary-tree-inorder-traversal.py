@@ -15,14 +15,14 @@ class Solution:
                 res.append(curr.val)
                 curr = curr.right
             else: #if there is left tree
-                predecessor = curr.left 
-                while predecessor.right!=curr and predecessor.right!=None: #keep going to the right
-                    predecessor = predecessor.right
-                if  not predecessor.right:
-                    predecessor.right=curr
+                prev = curr.left 
+                while prev.right!=curr and prev.right!=None: #keep going to the right
+                    prev = prev.right
+                if  not prev.right:
+                    prev.right=curr
                     curr = curr.left
                 else:
-                    predecessor.right=None
+                    prev.right=None
                     res.append(curr.val)
                     curr = curr.right
         return res
