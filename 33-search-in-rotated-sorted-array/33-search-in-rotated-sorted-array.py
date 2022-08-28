@@ -15,7 +15,7 @@ class Solution:
                 else:
                     start = mid+1
             else:
-                if target <= nums[end] and target > nums[mid]: # it is at the right
+                if nums[end] >= target > nums[mid]: # it is at the right
                     start = mid + 1
                 else:
                     end = mid - 1
