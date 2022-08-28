@@ -9,7 +9,7 @@ class Solution:
             mid=(start+end)//2
             if nums[mid]==target:
                 return mid
-            elif nums[mid] >= nums[start]:  #if the middle is bigger than the num at the start
+            elif nums[start] <= nums[mid]:  #if the middle is bigger than the num at the start
                 if nums[start] <= target < nums[mid]: #if the num is bigger than start and less than mid (its at the left)
                     end = mid
                 else:
