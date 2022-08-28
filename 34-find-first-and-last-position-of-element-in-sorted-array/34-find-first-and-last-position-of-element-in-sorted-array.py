@@ -6,33 +6,44 @@ class Solution:
         
         #find leftmost
         
-        def find_idx(start,end,target,flag):
-            leftMostIndex = -1
-
-            while start<=end:
-                mid = start+(end-start)//2
-                
-                if target < nums[mid]:
-                    end = mid-1
-                elif target > nums[mid]:
-                    start = mid+1
+        def find_left(left,right,target):
+            
+            while left  < right:
+                mid = (left + right) // 2
+                if target > nums[mid]:
+                   
+                    left = mid + 1
                 else:
-                    leftMostIndex = mid
-                    if flag==0:
-                        end = mid-1  #continue looking to the left
-                    else:
-                        start = mid+1 
-                        
-            return leftMostIndex
+                    right = mid 
+           
+            return left
+        def find_right(left,right,target):
+            i=-1
+            while left  <= right:
+                mid = (left + right) // 2
+                if target > nums[mid]:
                     
+                    left = mid + 1
+                elif target < nums[mid]:
+                    right = mid -1
+                else:
+                    i=mid
+                    left = mid+1
+            return i
 
         
-        left = find_idx(0,len(nums)-1,target,0)
-        right = find_idx(0,len(nums)-1,target,1)
-        
-        return [left,right]
-        
-                
+        left = 0
+        right= len(nums) - 1
+        leftelem,rightelem = -1,-1
+        leftelem = find_left(left,right,target)
+        rightelem = find_right(left,right,target)
+        #print(leftelem,rightelem)
+        if nums[leftelem]==target and  nums[rightelem]==target:
+            return [leftelem,rightelem] 
+        else:
+            return [-1,-1]
+                             
+                                
                 
                     
                     
