@@ -6,18 +6,8 @@ class Solution:
         
         #find leftmost
         
-        def find_left(left,right,target):
-            
-            while left  < right:
-                mid = (left + right) // 2
-                if target > nums[mid]:
-                   
-                    left = mid + 1
-                else:
-                    right = mid 
-           
-            return left
-        def find_right(left,right,target):
+ 
+        def find_idx(left,right,target,search_left):
             i=-1
             while left  <= right:
                 mid = (left + right) // 2
@@ -25,19 +15,20 @@ class Solution:
                     
                     left = mid + 1
                 elif target < nums[mid]:
-                    right = mid -1
+                    right = mid -1 
                 else:
                     i=mid
-                    left = mid+1
+                    if search_left: 
+                        right = mid-1
+                    else:
+                        left = mid + 1
             return i
 
         
         left = 0
         right= len(nums) - 1
-        leftelem,rightelem = -1,-1
-        leftelem = find_left(left,right,target)
-        rightelem = find_right(left,right,target)
-        #print(leftelem,rightelem)
+        leftelem = find_idx(left,right,target,1)
+        rightelem = find_idx(left,right,target,0)
         if nums[leftelem]==target and  nums[rightelem]==target:
             return [leftelem,rightelem] 
         else:
