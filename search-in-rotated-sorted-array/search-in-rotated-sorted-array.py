@@ -6,7 +6,6 @@ class Solution:
         
         while left < right:
             mid = (left+right)//2
-            print(mid)
             if nums[left]<= nums[mid]:
                
                 if nums[left]<=target <= nums[mid]:
