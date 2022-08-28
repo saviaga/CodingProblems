@@ -14,7 +14,6 @@ class Solution:
                     start = mid+1
                 else:
                     end = mid-1
-        
-        return nums[start-1]+k - num_missing(start-1)
+        return nums[start-1] - num_missing(start-1) + k
             
         
