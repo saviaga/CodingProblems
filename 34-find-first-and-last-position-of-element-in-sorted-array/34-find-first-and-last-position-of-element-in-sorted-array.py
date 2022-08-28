@@ -7,7 +7,7 @@ class Solution:
         #find leftmost
         
  
-        def find_idx(left,right,target,search_left):
+        def find_idx(left,right,search_left):
             i=-1
             while left  <= right:
                 mid = (left + right) // 2
@@ -27,8 +27,8 @@ class Solution:
         
         left = 0
         right= len(nums) - 1
-        leftelem = find_idx(left,right,target,1)
-        rightelem = find_idx(left,right,target,0)
+        leftelem = find_idx(left,right,1)
+        rightelem = find_idx(left,right,0)
         if nums[leftelem]==target and  nums[rightelem]==target:
             return [leftelem,rightelem] 
         else:
