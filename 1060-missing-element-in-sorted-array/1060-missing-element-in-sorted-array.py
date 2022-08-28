@@ -6,14 +6,14 @@ class Solution:
             return nums[i]-nums[0]-i
             
         start =0
-        end =len(nums)-1
+        end =len(nums)
             
-        while start<= end:
+        while start< end:
                 mid = start+(end-start)//2
                 if num_missing(mid)<k:
                     start = mid+1
                 else:
-                    end = mid-1
+                    end = mid
         return nums[start-1] - num_missing(start-1) + k
             
         
