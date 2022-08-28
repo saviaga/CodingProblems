@@ -5,7 +5,7 @@ class Solution:
         end = len(nums)
         
         while start < end:
-            mid = start + (end-start)//2
+            mid = (end+start)//2
             if nums[mid] >= target:
                 end = mid 
             else:
