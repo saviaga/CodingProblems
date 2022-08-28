@@ -10,8 +10,8 @@ class Solution:
             if nums[mid]==target:
                 return mid
             elif nums[mid] >= nums[start]:  #if the middle is bigger than the num at the start
-                if target >= nums[start] and target < nums[mid]: #if the num is bigger than start and less than mid (its at the left)
-                    end = mid - 1
+                if nums[start] <= target < nums[mid]: #if the num is bigger than start and less than mid (its at the left)
+                    end = mid
                 else:
                     start = mid+1
             else:
