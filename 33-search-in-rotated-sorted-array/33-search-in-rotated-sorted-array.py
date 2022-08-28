@@ -18,5 +18,5 @@ class Solution:
                 if nums[end] >= target > nums[mid]: # it is at the right
                     start = mid + 1
                 else:
-                    end = mid - 1
+                    end = mid
         return -1            
