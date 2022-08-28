@@ -1,18 +1,12 @@
 class Solution:
 
     def __init__(self, nums: List[int]):
-        self.nums=collections.defaultdict(list)
+        self.dic_idx=collections.defaultdict(list)
         for i,value in enumerate(nums):
-            self.nums[value].append(i)
-        
-        
-        
- 
-    def pick(self, target: int) -> int:    
-        
-        return random.choice(self.nums[target])
-        
-
+            self.dic_idx[value].append(i)
+         
+    def pick(self, target: int) -> int:
+        return random.choice(self.dic_idx[target])
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(nums)
