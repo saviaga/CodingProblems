@@ -1,11 +1,8 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         
-        if len(nums)==0:
-            return [-1,-1]
-        
-        #find leftmost
-        
+   #     if len(nums)==0:
+   #         return [-1,-1]
  
         def find_idx(left,right,search_left):
             i=-1
@@ -29,10 +26,8 @@ class Solution:
         right= len(nums) - 1
         leftelem = find_idx(left,right,1)
         rightelem = find_idx(left,right,0)
-        if nums[leftelem]==target and  nums[rightelem]==target:
-            return [leftelem,rightelem] 
-        else:
-            return [-1,-1]
+        return [leftelem,rightelem] 
+       
                              
                                 
                 
