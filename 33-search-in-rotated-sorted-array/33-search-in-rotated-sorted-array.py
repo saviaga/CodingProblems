@@ -7,8 +7,6 @@ class Solution:
         while start<end:
             
             mid=(start+end)//2
-           # if nums[mid]==target:
-            #    return mid
             if nums[start] <= nums[mid]:  #if the middle is bigger than the num at the start
                 if nums[start] <= target <= nums[mid]: #if the num is bigger than start and less than mid (its at the left)
                     end = mid 
