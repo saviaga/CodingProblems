@@ -12,7 +12,7 @@ class Solution:
                 
                     left = mid + 1
                     
-            elif nums[mid]<nums[right]:
+            else:
                     right = mid
 
               
