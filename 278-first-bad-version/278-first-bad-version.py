@@ -3,13 +3,16 @@
 
 class Solution:
     def firstBadVersion(self, n: int) -> int:
-        lo = 1
-        hi = n
-        while (lo <= hi): 
-            mid = (hi + lo)//2
-            if (isBadVersion(mid)):
-                hi = mid - 1
+        
+        start = 1
+        end = n
+        
+        while start < end:
+            mid = start + (end -start)//2
+            if isBadVersion(mid):
+                end = mid            
             else:
-                lo = mid + 1
-        return lo
+                start = mid+1
+        
+        return start
                 
