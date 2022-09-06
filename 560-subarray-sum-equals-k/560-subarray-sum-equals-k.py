@@ -11,7 +11,11 @@ class Solution:
             if complement in dic_sum:
                 count+=dic_sum[complement]
             
-            dic_sum[cum_sum]= dic_sum.get(cum_sum, 0) + 1
+            if cum_sum in dic_sum:
+                dic_sum[cum_sum]+=1
+            else:dic_sum[cum_sum]=1
+        
+           
         return count
     
                 
