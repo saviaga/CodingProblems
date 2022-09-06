@@ -1,13 +1,21 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
+        count = 0
         
-        count= 0
-        cs= 0
-        dic_cs={0:1}
+        dic_sum = {0:1}
+        cum_sum = 0
+        
         for elem in nums:
-            cs+=elem
-            if (cs-k) in dic_cs:
-                count+=dic_cs[cs-k]
-            dic_cs[cs]= dic_cs.get(cs, 0) + 1
-         
+            cum_sum+=elem
+            complement = cum_sum-k
+            if complement in dic_sum:
+                count+=dic_sum[complement]
+            
+            dic_sum[cum_sum]= dic_sum.get(cum_sum, 0) + 1
         return count
+    
+                
+            
+                
+                
+            
