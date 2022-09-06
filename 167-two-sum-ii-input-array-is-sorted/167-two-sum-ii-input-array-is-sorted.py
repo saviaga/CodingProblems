@@ -1,17 +1,16 @@
-class Solution(object):
-    def twoSum(self, numbers, target):
-        """
-        :type numbers: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        complement = 0
-        indices = {}
-        for i in range(len(numbers)):
-            complement = target - numbers[i]
-            if complement in indices:
-                return [indices[complement]+1,i+1]
-            else:
-                indices[numbers[i]] = i
-        return []
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
         
+        i=0
+        j = len(numbers)-1
+        
+        while i<j:
+            if numbers[i] + numbers[j] > target:
+                j-=1
+            elif numbers[i] + numbers[j] < target:
+                i+=1
+                
+            else:
+                return [i+1,j+1]
+            
+            
