@@ -1,20 +1,14 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        temp = {}
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         
+        dict_nums = {}
         for i in range(len(nums)):
             complement = target - nums[i]
-            if complement in temp:
-                return [temp[complement],i]
+                
+            if complement in dict_nums:
+                    return [i, dict_nums[complement]]
             else:
-                temp[nums[i]] = i 
-                
-        
-                
-            
+                    dict_nums[nums[i]] = i 
+                    
+                    
         
