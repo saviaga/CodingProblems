@@ -8,14 +8,14 @@ class Solution:
         for i in range(len(nums)):
             #check two numbers that sum to the complement of nums
             #If the current value > zero, break from the loop. Remaining values cannot sum to zero.
-            if nums[i] > 0:
-                break
-            if i== 0 or nums[i]!=nums[i-1]:
+            
+            if i> 0 and nums[i]==nums[i-1]:
+                continue
                 
-                s=i+1
-                e = len(nums)-1
+            s=i+1
+            e = len(nums)-1
 
-                while s<e:
+            while s<e:
                         if nums[i] + nums[s] + nums[e] > 0:
                             e-=1
                         elif  nums[i] + nums[s] + nums[e] < 0:
