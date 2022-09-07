@@ -11,11 +11,10 @@ class Solution:
             if remainder in dic_remainder:
                 
                 count+=dic_remainder[remainder]
+                dic_remainder[remainder]+=1
                 
             if remainder not in dic_remainder:                
                 dic_remainder[remainder] = 1   
-            else:
-                dic_remainder[remainder]+=1
 
         return count
             
