@@ -12,9 +12,8 @@ class Solution:
                 for j in range(i+1,len(nums)):
                     complement = -nums[i] - nums[j]
                     if complement in seen and seen[complement] == i:
-                        numbers = [nums[i], nums[j], complement]
-                        numbers.sort()
-                        res.add(tuple(numbers))
+
+                        res.add(tuple(sorted([nums[i], nums[j], complement])))
                     seen[nums[j]] = i
                   
         return res        
