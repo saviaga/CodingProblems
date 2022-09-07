@@ -6,7 +6,7 @@ class Solution:
         
         for i in range(len(nums)): 
             complement = k - nums[i]
-            if complement in dic_nums and dic_nums[complement]>0:
+            if dic_nums[complement]>0:
                 count+=1
                 dic_nums[complement]-=1
             else:
