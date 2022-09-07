@@ -1,16 +1,21 @@
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         
-        dic_nums = defaultdict(int)
-        counter = 0
+        count=0
+        nums.sort()
         
-        for i in range(len(nums)):
-            complement = k - nums[i] 
-            if complement in dic_nums and dic_nums[complement]>0:
-                counter+=1
-                dic_nums[complement]-=1
+        s = 0
+        e = len(nums)-1
+        
+        while s<e:
+            if nums[s] + nums[e] <k:
+                s+=1
+            elif  nums[s] + nums[e] >k:
+                e-=1
             else:
-                dic_nums[nums[i]]+=1
+                count+=1
+                s+=1
+                e-=1
         
-        return counter
+        return count
         
