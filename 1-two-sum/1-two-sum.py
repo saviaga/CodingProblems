@@ -7,8 +7,7 @@ class Solution:
                 
             if complement in dict_nums:
                     return [i, dict_nums[complement]]
-            else:
-                    dict_nums[nums[i]] = i 
+            dict_nums[nums[i]] = i 
                     
                     
         
