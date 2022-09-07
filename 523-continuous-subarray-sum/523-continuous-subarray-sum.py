@@ -8,11 +8,11 @@ class Solution:
             curr_sum+=nums[end]
             
             remainder = curr_sum%k
-            if remainder in dic_rem:
-                if end - dic_rem[remainder] > 1:
-                    return True 
-            else:
+            if remainder not in dic_rem:
                 dic_rem[remainder]=end
+            elif end - dic_rem[remainder] > 1:
+                    return True 
+            
         return False
                 
             
