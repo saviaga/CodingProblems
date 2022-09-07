@@ -4,6 +4,7 @@ class Solution:
         dic_rem = {0:-1}
         curr_sum = 0
         
+        
         for i in range(len(nums)):
             curr_sum+=nums[i]
             
