@@ -3,14 +3,8 @@ class Solution:
         
         count = 0
         nums.sort()
-
-        #[-2,0,1,3]
-        #.   s.e.
-        #.      
-        #-2 + 0 + 3 = 1 < target-> trye both counter left and right
-        #-2 + 1 + 3 = 2
         
-        for i in range(len(nums)):
+        for i in range(len(nums)-2):
             
             s=i+1
             e = len(nums)-1
