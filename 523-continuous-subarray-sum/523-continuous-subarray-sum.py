@@ -1,21 +1,19 @@
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
         
-        remainder_dic = {0:-1}
+        dic_rem = {0:-1}
+        curr_sum = 0
         
-        total = 0
-        for i, n in enumerate(nums):
-            total+=n
+        for end in range(len(nums)):
+            curr_sum+=nums[end]
             
-            remainder = total%k
-           
-            if remainder not in remainder_dic: #remainder not in dic
-                remainder_dic[remainder]  = i #we store index
-            
-            #remainder in dic, check that size>2
-            elif i - remainder_dic[remainder] > 1: #if at least 2 elems
-                return True
-            
+            remainder = curr_sum%k
+            if remainder in dic_rem:
+                if end - dic_rem[remainder] > 1:
+                    return True 
+            else:
+                dic_rem[remainder]=end
         return False
+                
             
         
