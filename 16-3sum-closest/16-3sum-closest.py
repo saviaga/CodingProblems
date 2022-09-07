@@ -6,7 +6,7 @@ class Solution:
         nums.sort()
 
         count = 0
-        for i in range(len(nums)):
+        for i in range(len(nums)-2):
             
             s= i+1
             e= len(nums)-1
@@ -21,7 +21,8 @@ class Solution:
                     s+=1
                 else:                   
                     e-=1
-
+                if closest == 0:
+                    break
         return target - closest
         
         
