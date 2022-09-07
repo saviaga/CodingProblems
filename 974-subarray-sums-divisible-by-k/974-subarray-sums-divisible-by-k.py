@@ -13,7 +13,8 @@ class Solution:
                 count+=dic_remainder[remainder]
                 dic_remainder[remainder]+=1
                 
-            if remainder not in dic_remainder:                
+            else:
+                           
                 dic_remainder[remainder] = 1   
 
         return count
