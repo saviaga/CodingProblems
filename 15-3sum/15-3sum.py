@@ -11,19 +11,18 @@ class Solution:
             
             if i== 0 or nums[i]!=nums[i-1]:
                 
-                s=i+1
-                e = len(nums)-1
+                seen = set()
+                j = i+1
 
-                while s<e:
-                        if nums[i] + nums[s] + nums[e] > 0:
-                            e-=1
-                        elif  nums[i] + nums[s] + nums[e] < 0:
-                            s+=1
+                while j<len(nums):
+                        complement = - nums[i] - nums[j]
+                        if complement in seen:
+                            stack.append([nums[i],nums[j],complement])
+                            while j+1 < len(nums) and nums[j] == nums[j+1]:
+                                j+=1
                         else:
-                            stack.append([nums[i],nums[s],nums[e]])
-                            s+=1
-                            while nums[s]==nums[s-1] and s<e:
-                                s+=1
+                            seen.add(nums[j])
+                        j+=1
                             
         return stack
         
