@@ -3,9 +3,7 @@ class Solution:
         
         count = 0
         nums.sort()
-        print(nums)
-        if len(nums)<3:
-            return 0
+
         #[-2,0,1,3]
         #.   s.e.
         #.      
