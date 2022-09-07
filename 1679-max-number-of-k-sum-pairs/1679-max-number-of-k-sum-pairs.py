@@ -2,20 +2,18 @@ class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         
         count=0
-        nums.sort()
+        dic_nums = defaultdict(int)
         
-        s = 0
-        e = len(nums)-1
-        
-        while s<e:
-            if nums[s] + nums[e] > k:
-                e-=1
-            elif nums[s] + nums[e] < k:
-                s+=1
-            else:
+        for i in range(len(nums)): 
+            complement = k - nums[i]
+            if complement in dic_nums and dic_nums[complement]>0:
                 count+=1
-                s+=1
-                e-=1
+                dic_nums[complement]-=1
+            else:
+                dic_nums[nums[i]] = dic_nums.get(nums[i],0)+1
+                
+                
+       
                 
         return count
         
