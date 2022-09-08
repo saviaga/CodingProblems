@@ -20,9 +20,9 @@ class Solution(object):
         while start<=end:
             if s[start]!=s[end]:
                 return self.validPalindromeHelper(start+1,end,s) or self.validPalindromeHelper(start,end-1,s)
-            else:
-                start+=1
-                end-=1
+
+            start+=1
+            end-=1
         return True
             
             
