@@ -1,44 +1,41 @@
 class Solution:
     def calculate(self, s: str) -> int:
         
-        cur_operator = '+'
+        operator = '+'
         res = 0
-        cur = 0
+        prev = 0
         i=0
         
-        #grab the first number
         while i < len(s):
-            cur = 0
-            if s[i]!=" " and not s[i].isdigit():
-                cur_operator = s[i]
-            #process the first number which can contain several digits #324+24
+            curr = 0
+            if s[i]!=' ' and not s[i].isdigit():
+                operator = s[i]
             elif s[i].isdigit():
-                while i <len(s) and s[i].isdigit():
-                    #0 *10 + 3  = 3
-                    #3 *10 + 2  = 32
-                    #32*10 + 4  = 324
-                    cur = cur* 10 + int(s[i])
+                #334
+                #0*10 + 3 = 30
+                #3*10 + 3 = 33
+                #33*10 + 4 = 334
+                while i<len(s) and s[i].isdigit():
+                    curr=curr*10 + int(s[i])
                     i+=1
-                ##324+24
-                #    ^  is gonna finish there so we need to go back one place to grab the operator at the last iteration. 
+                #3+5
+                # ^
                 i-=1
-                if cur_operator == '+':
-                    res += cur
-                    prev = cur
-                elif cur_operator == '-':
-                    res -= cur
-                    prev = -cur
-                elif cur_operator == '*':
-                    res -= prev
-                    res+= prev * cur
-                    prev = prev * cur  # 4×20÷4 -> 80÷4, we need to save the result of prev*curr
-                elif cur_operator == '/':
+                if operator=='+':
+                    res+=curr
+                    prev = curr
+                elif operator=='-':
+                    res-=curr
+                    prev = -curr
+                elif operator =='*':
                     res-=prev
-                    res+= int(prev/cur)
-                    prev= int(prev/cur)  #30 ÷ 5 × 3	=	6 × 3
-                   
-                
-            
+                    res+= prev * curr
+                    prev = prev * curr
+                elif operator =='/':
+                    res-=prev
+                    res+= int(prev/curr)
+                    prev = int(prev/curr)
             i+=1
-        return res            
+        return res
+                    
         
