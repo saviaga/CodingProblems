@@ -5,7 +5,7 @@ class Solution:
       
             
        
-        k=k-1
+        
         def quickselect(l,r):
             random = randint(l,r)
             points[random], points[r] = points[r], points[random]
@@ -18,8 +18,8 @@ class Solution:
                     points[p], points[i] = points[i],points[p]
                     p+=1
             points[p],points[r]= points[r],points[p]
-            if p==k: return points[:k+1]
-            elif p > k: return quickselect(l,p-1)
+            if p==k-1: return points[:k]
+            elif p > k-1: return quickselect(l,p-1)
             else: return quickselect(p+1,r)
             
             
