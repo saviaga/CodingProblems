@@ -8,7 +8,8 @@ class Solution(object):
         k = len(nums)-k
         
         def quickselect(l,r):
-            
+            random = randint(l,r)
+            nums[random], nums[r] = nums[r], nums[random]
             pivot = nums[r]
   
             p = l
