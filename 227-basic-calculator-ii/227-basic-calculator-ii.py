@@ -9,8 +9,10 @@ class Solution:
         #grab the first number
         while i < len(s):
             cur = 0
+            if s[i]!=" " and not s[i].isdigit():
+                cur_operator = s[i]
             #process the first number which can contain several digits #324+24
-            if s[i].isdigit():
+            elif s[i].isdigit():
                 while i <len(s) and s[i].isdigit():
                     #0 *10 + 3  = 3
                     #3 *10 + 2  = 32
@@ -35,8 +37,7 @@ class Solution:
                     res += int(prev/cur)
                     prev = int(prev/cur)
                 
-            elif s[i]!=" ":
-                cur_operator = s[i]
+            
             i+=1
         return res            
         
