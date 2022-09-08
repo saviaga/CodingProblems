@@ -9,19 +9,19 @@ class Solution:
         
         
         if root == None:
-            return 
+            return
         
-        closest = float('inf')
+        closest= float("inf")
         
         while root:
-            if abs(root.val-target) < abs(closest - target):
+            if abs(root.val-target) < abs(closest-target):
                 closest = root.val
-            if target < root.val:
+            if target <= root.val:
                 root = root.left
-
             else:
                 root = root.right
         return closest
+                
         
         
             
