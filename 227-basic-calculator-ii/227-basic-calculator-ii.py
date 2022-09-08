@@ -31,11 +31,11 @@ class Solution:
                 elif cur_operator == '*':
                     res -= prev
                     res+= prev * cur
-                    prev = prev * cur
+                    prev = prev * cur  # 4×20÷4 -> 80÷4, we need to save the result of prev*curr
                 elif cur_operator == '/':
                     res-=prev
                     res+= int(prev/cur)
-                    prev= int(prev/cur)
+                    prev= int(prev/cur)  #30 ÷ 5 × 3	=	6 × 3
                    
                 
             
