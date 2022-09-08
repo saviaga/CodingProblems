@@ -10,23 +10,32 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def diameterOfBinaryTreeHelper(node):
+        stack = [(root,False)]
+        diameter = 0
+        height = {}
+        
+        while stack:
+            curr, visited = stack.pop()
             
-            if node == None:
-                return 0
+            if visited:
+                hleft = height.get(curr.left,0)
+                hright = height.get(curr.right,0)
+                
+                diameter = max(diameter,hleft+hright)
+                
+                height[curr] = max(hleft,hright)+1
+                
+            else:
+                stack.append((curr,True))
+                if curr.right:
+                    stack.append((curr.right,False))
+                if curr.left:
+                    stack.append((curr.left,False))
             
-            #explore left and right
-            left =  diameterOfBinaryTreeHelper(node.left)
-            right = diameterOfBinaryTreeHelper(node.right)
-            
-            #update the max_diameter
-            self.diameter = max(self.diameter,left + right)
-            return max(left,right) + 1    
-    
-    
-        self.diameter = 0
-        diameterOfBinaryTreeHelper(root)
-        return self.diameter
+        return diameter
+                    
+                    
+                    
         
         
         
