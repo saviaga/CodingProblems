@@ -4,12 +4,11 @@ class Solution:
         cur_operator = '+'
         res = 0
         cur = 0
-        prev = 0
         i=0
         
         #grab the first number
         while i < len(s):
-            
+            cur = 0
             #process the first number which can contain several digits #324+24
             if s[i].isdigit():
                 while i <len(s) and s[i].isdigit():
@@ -35,7 +34,7 @@ class Solution:
                     res -= prev
                     res += int(prev/cur)
                     prev = int(prev/cur)
-                cur = 0
+                
             elif s[i]!=" ":
                 cur_operator = s[i]
             i+=1
