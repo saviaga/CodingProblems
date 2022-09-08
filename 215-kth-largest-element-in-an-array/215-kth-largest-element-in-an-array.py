@@ -13,7 +13,7 @@ class Solution(object):
   
             p = l
             for i in range(l,r):
-                if nums[i] <= pivot:
+                if nums[i] < pivot:
                     nums[p], nums[i] = nums[i],nums[p]
                     p+=1
             nums[p],nums[r]= nums[r],nums[p]
