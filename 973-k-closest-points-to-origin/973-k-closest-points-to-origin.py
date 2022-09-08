@@ -1,26 +1,33 @@
 import heapq
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        
-        def get_eucledian(coord):
-            x1,x2=coord            
-            return math.sqrt((x1-0)**2+(x2-0)**2)
+
+      
             
-        distances = []
-        
-        for p in points:
-            distances.append((get_eucledian(p),p))
-        
-        top_k = []
-        for elem in distances:
-            if len(top_k)<k:
-                heapq.heappush(top_k, (elem[0]*(-1), elem[1]))
+       
+        k=k-1
+        def quickselect(l,r):
+            random = randint(l,r)
+            points[random], points[r] = points[r], points[random]
+            pivot = points[r]
+  
+            p = l
+            for i in range(l,r):
                 
-            else:
-                heapq.heappush(top_k, (elem[0]*(-1), elem[1]))
-                heapq.heappop(top_k)
+                if  (points[i][0]**2 + points[i][1]**2) <= (pivot[0]**2 + pivot[1]**2):
+                    points[p], points[i] = points[i],points[p]
+                    p+=1
+            points[p],points[r]= points[r],points[p]
+          
+            if p > k: return quickselect(l,p-1)
+            elif p < k: return quickselect(p+1,r)
+            else:   return points[:k+1]
+            
+        return quickselect(0,len(points)-1)
+
+    
         
-        return [elem[1] for elem in top_k]
+
 
 
 
