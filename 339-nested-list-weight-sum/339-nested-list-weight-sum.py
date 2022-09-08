@@ -47,19 +47,21 @@ class Solution(object):
         :type nestedList: List[NestedInteger]
         :rtype: int
         """
-        def dfs(nestedList,depth):
-            total = 0
-            for nested in nestedList:
-                if nested.isInteger():
-                    total+= nested.getInteger()*depth
+        queue = deque(nestedList)
+        depth =1
+        total_sum = 0
+        while queue:
+            
+            for _ in range(len(queue)):
+                curr = queue.popleft()
+                if curr.isInteger():
+                    total_sum+=curr.getInteger()*depth
                 else:
-                    total+= dfs(nested.getList(),depth+1)
-            return total
-        
-
-        return  dfs(nestedList,1) 
-    
-
+                    for elem in curr.getList():
+                        queue.append(elem)
+            depth+=1
+        return total_sum
+                
             
         
         
