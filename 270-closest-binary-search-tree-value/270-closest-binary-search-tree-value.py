@@ -11,7 +11,7 @@ class Solution:
         if root == None:
             return 
         
-        closest = root.val
+        closest = float('inf')
         
         while root:
             if abs(root.val-target) < abs(closest - target):
