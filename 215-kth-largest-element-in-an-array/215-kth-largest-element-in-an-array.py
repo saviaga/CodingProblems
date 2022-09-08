@@ -10,6 +10,7 @@ class Solution(object):
         def quickselect(l,r):
             
             pivot = nums[r]
+  
             p = l
             for i in range(l,r):
                 if nums[i] <= pivot:
