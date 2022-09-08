@@ -30,12 +30,13 @@ class Solution:
                     prev = -cur
                 elif cur_operator == '*':
                     res -= prev
-                    res += prev * cur
-                    prev = cur * prev
+                    res+= prev * cur
+                    prev = prev * cur
                 elif cur_operator == '/':
-                    res -= prev
-                    res += int(prev/cur)
-                    prev = int(prev/cur)
+                    res-=prev
+                    res+= int(prev/cur)
+                    prev= int(prev/cur)
+                   
                 
             
             i+=1
