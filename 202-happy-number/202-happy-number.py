@@ -9,14 +9,14 @@ class Solution(object):
         if n=='1':
             return True
        
-        self.res.append(n)
+        self.res.add(n)
         for elem in n:
             result += int(elem)*int(elem)
         
         return self.isHappyHelper(str(result))
         
     def isHappy(self, n):
-        self.res = []
+        self.res = set()
         return self.isHappyHelper(str(n))
                 
         
