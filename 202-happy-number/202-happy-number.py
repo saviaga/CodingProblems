@@ -6,17 +6,19 @@ class Solution(object):
         result = 0
         if n in self.res:
             return False
-        if n=='1':
+        if n==1:
             return True
        
         self.res.add(n)
-        for elem in n:
-            result += int(elem)*int(elem)
+        while n > 0:
+            digit = n%10
+            n=n//10
+            result += digit * digit
         
-        return self.isHappyHelper(str(result))
+        return self.isHappyHelper(result)
         
     def isHappy(self, n):
         self.res = set()
-        return self.isHappyHelper(str(n))
+        return self.isHappyHelper(n)
                 
         
