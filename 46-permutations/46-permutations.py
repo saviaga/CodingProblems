@@ -1,41 +1,27 @@
 class Solution(object):
+    
+    def permuteHelper(self,nums,chosen):
+        if len(nums)==0:
+            return self.res.append(chosen[:])
+        else:
+            
+            for i in range(len(nums)):
+                #chose
+                ch = nums[i]
+                chosen.append(ch)
+                #explore
+                nums.remove(ch) 
+                self.permuteHelper(nums,chosen)
+                
+            #unchose
+                nums.insert(i,ch)
+                chosen.pop()
     def permute(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        self.res = []
+        self.permuteHelper(nums,[])
+        return self.res
         
-        def permuteHelper(nums,chosen):
-            self.calls+=1
-            if len(nums)==0:
-               
-                return res.append(chosen[:])
-            else:
-                #ABCD - > Choose A -> permute the rest of the elements BCD
-                for i in range(len(nums)):  
-                    
-                    #choose
-                    element = nums[i]
-                    chosen.append(element) #Choose A
-                    nums.remove(element)  # permute the rest of the elements BCD
-                    #explore
-                    permuteHelper(nums,chosen)
-                    #unchose
-                    nums.insert(i,element)  #unchosse c (send back to  string)
-                    chosen.pop()
-        
-      
-        res = []  
-        self.calls = 0
-        permuteHelper(nums,[])
-        print(self.calls)
-        return res
-        
-        #perm
-                
-           
-            
-                    
-                   
-                
-                
