@@ -2,7 +2,8 @@ class Solution(object):
     
     def permuteHelper(self,nums,chosen):
         if len(nums)==0:
-            return self.res.append(chosen[:])
+            self.res.append(chosen[:])
+            return
         else:
             
             for i in range(len(nums)):
@@ -21,7 +22,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        self.res = []
+
+        self.res=[]
         self.permuteHelper(nums,[])
         return self.res
         
