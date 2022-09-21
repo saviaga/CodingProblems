@@ -3,7 +3,7 @@ class Solution:
 
         def myPowHelp(x,n):
                 if n==0:return 1
-                if x==0: return 0
+                
 
                 temp = myPowHelp(x,n//2)
                 result = temp*temp
