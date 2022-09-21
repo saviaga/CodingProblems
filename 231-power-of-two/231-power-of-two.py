@@ -4,15 +4,10 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        def isPowerOfTwoHelper(result):
-            
-            if n == result:
-                return True 
-            if  result > n:
-                return False
-            result *=2
-            return isPowerOfTwoHelper(result)
-           
-        
-        result = 1
-        return isPowerOfTwoHelper(result)
+        if n == 0:
+            return False
+        if n == 1:
+            return True
+        if n % 2 != 0:
+            return False
+        return n % 2 == 0 and self.isPowerOfTwo(n//2)
