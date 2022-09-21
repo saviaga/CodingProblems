@@ -3,13 +3,11 @@ class Solution:
 
         def myPowHelp(x,n):
                 if n==0:return 1
-                
 
                 temp = myPowHelp(x,n//2)
                 result = temp*temp
-                if n%2==1:
-                    result= result*x
-                return result
+                return result*x if n%2==1 else result 
+
         
         if n<0:
             return 1/myPowHelp(x,abs(n))
