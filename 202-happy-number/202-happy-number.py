@@ -2,12 +2,9 @@ class Solution(object):
     
     
     def isHappyHelper(self, n):
-        print(n)
         result = 0
-        if n in self.res:
-            return False
-        if n==1:
-            return True
+        if n in self.res: return False
+        if n==1:  return True
        
         self.res.add(n)
         while n > 0:
