@@ -6,8 +6,9 @@ class Solution:
 
                 temp = myPowHelp(x,n//2)
                 result = temp*temp
-                return result*x if n%2==1 else result 
-
+                if n%2==1:
+                    result= result*x
+                return result
         
         if n<0:
             return 1/myPowHelp(x,abs(n))
