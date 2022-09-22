@@ -49,8 +49,8 @@ class Solution(object):
         start = 0
         for end in range(len(s)):
                 
-            if s[end] in chars:
-                while s[end] in chars:
+
+            while s[end] in chars:
                         chars.remove(s[start])
                         start+=1
             chars.add(s[end])
