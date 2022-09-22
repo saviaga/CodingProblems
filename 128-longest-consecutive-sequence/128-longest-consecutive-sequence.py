@@ -25,24 +25,21 @@ class Solution(object):
         #3. start counter otherwise
         
         #{0:1,1:1,2:3,6:4,7:5,8:6}
-        counter = 0
+       
         longest=0
-        nums_dict = set()
-        for i in range(len(nums)):
-            nums_dict.add(nums[i])
-        
+        nums_dict = set(nums)
+       
        
         for elem in nums:
-            #check sequence
             
-            if elem-1 in nums_dict:
-                continue
-            lenght = 1
-            current = elem
-            while current+1 in nums_dict:
-                lenght+=1
-                current+=1
-            longest = max(longest,lenght)
+            if elem-1 not in nums_dict:
+                
+                lenght = 1
+                current = elem
+                while current+1 in nums_dict:
+                    lenght+=1
+                    current+=1
+                longest = max(longest,lenght)
         return longest
             
                 
