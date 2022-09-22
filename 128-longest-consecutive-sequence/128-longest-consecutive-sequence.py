@@ -13,7 +13,7 @@ class Solution(object):
         #Output: 1
         
         #Input: [0,1,2,2,6,7,8]
-        #Output:4
+        #Output:3
         
         #Approach 1: "sort and sliding window"
         # Time: O(nlgn)
