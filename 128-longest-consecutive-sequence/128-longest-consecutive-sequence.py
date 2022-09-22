@@ -20,9 +20,11 @@ class Solution(object):
         # Space: O(1)
         
         #Approach 2: 
-        #1. Store in a dictionary keys-> number values->index
-        #2. go through the array and check if next value is in dict, if yes, count
-        #3. start counter otherwise
+        #1. Store numbers in a set
+        #2. go through the array and check if value-1 not in set (this means that current number is the start of a sequence)
+            #do a while loop to get the secuence lenght
+        #3. calculate the longest sequence so far
+        #4. return sequence
         
         #{0:1,1:1,2:3,6:4,7:5,8:6}
        
