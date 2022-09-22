@@ -27,7 +27,8 @@ class Solution(object):
         #4. return sequence
         
         #{0:1,1:1,2:3,6:4,7:5,8:6}
-       
+        #Time O(n)
+        #Space O(n)
         longest=0
         nums_dict = set(nums)
        
