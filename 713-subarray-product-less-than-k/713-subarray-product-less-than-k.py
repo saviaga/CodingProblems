@@ -1,19 +1,19 @@
-class Solution:
-    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
-        
-       
-        counter = 0 
+class Solution(object):
+    def numSubarrayProductLessThanK(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        count = 0
         start = 0
-        prod = 1
+        curr_prod = 1
         if k<=1: return 0
         for end in range(len(nums)):
-                prod*=nums[end]
-                while prod >= k:
-                        prod/=nums[start]
-                        start+=1
-                
-                
-                counter+= (end - start +1)
-        return counter   
+            curr_prod *= nums[end]
+            while curr_prod >=k:
+                curr_prod/=nums[start]
+                start+=1
+            count+= end-start+1
+        return count
         
-                    
