@@ -16,17 +16,19 @@ class Solution(object):
         #Time: 0(N)
         #Space O(N)
         
+        
         dict_complements = collections.defaultdict(int)
         count = 0
         
         for elem in arr:
-            compl = -elem%k
+            compl = k-(elem%k) #(X + Y) % K == 0 >> X%K = -Y%K
+            
             if compl in dict_complements and dict_complements[compl]>=1:
                 count+=1
                 dict_complements[compl]-=1
             else:
                 
-                dict_complements[(elem%k)]+=1
+                dict_complements[(elem%k) or k]+=1
         return count == len(arr) // 2
                 
                 
