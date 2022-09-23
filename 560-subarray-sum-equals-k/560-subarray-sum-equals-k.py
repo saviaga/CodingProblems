@@ -6,19 +6,19 @@ class Solution(object):
         :rtype: int
         """
         
-        count=0
-        start = 0
-        curr_sum = 0
-        freq = {0:1}
+        count = 0
+        prefix_sum = {0:1}
+        cum_sum = 0
         
         for elem in nums:
-            curr_sum+=elem
-            complement = curr_sum - k
-            if complement in freq:
-                count+=freq[complement]
-            if curr_sum in freq:
-                freq[curr_sum]+=1
+            cum_sum+=elem
+            complement = cum_sum - k
+            if complement in prefix_sum:
+                count+=prefix_sum[complement]
+            if cum_sum in prefix_sum:
+                prefix_sum[cum_sum]+=1
             else:
-                freq[curr_sum]=1
+                prefix_sum[cum_sum]=1
         return count
+        
         
