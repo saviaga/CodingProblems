@@ -12,10 +12,10 @@ class Solution(object):
             remainder = curr_sum%k
           
             if remainder not in freq:
+
                 freq[remainder]=i
             elif i - freq[remainder]>1:
                 return True
-            
                 
         return False
             
