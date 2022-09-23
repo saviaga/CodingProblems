@@ -6,6 +6,7 @@ class Solution(object):
         """
         start = 0
         end = len(s)-1
+       
         
         while start <= end:
             while not s[start].isalnum() and start<end:
@@ -14,6 +15,7 @@ class Solution(object):
             if not s[end].isalnum() and end>start:
                 end-=1
                 continue
+            
             if s[start].lower() !=s[end].lower():
                 return False
             start+=1
