@@ -26,7 +26,7 @@ class Solution(object):
         #Space O(1)
         
         #Approach 2:
-        #use dictionary
+        #use sliding window
         
         #s = "pwwkew"
         #       ^
@@ -48,13 +48,12 @@ class Solution(object):
         longest=0
         start = 0
         for end in range(len(s)):
-                
-
-            while s[end] in chars:
-                        chars.remove(s[start])
-                        start+=1
-            chars.add(s[end])
-            longest= max(longest,len(chars))
+            curr_elem = s[end]
+            while curr_elem in chars and start<=end:
+                chars.remove(s[start])
+                start+=1
+            chars.add(curr_elem)
+            longest = max(longest,len(chars))
             
              
         return longest
