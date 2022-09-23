@@ -8,12 +8,12 @@ class Solution(object):
         end = len(s)-1
         
         while start <= end:
-            while not s[start].isalnum() and start<end:
+            if not s[start].isalnum():
                 start+=1
-                
-            while not s[end].isalnum() and start<end:
+                continue
+            if not s[end].isalnum():
                 end-=1
-                
+                continue
             if s[start].lower() !=s[end].lower():
                 return False
             start+=1
