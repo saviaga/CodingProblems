@@ -8,10 +8,10 @@ class Solution(object):
         count = 0
         start = 0
         curr_prod = 1
-        if k<=1: return 0
+        
         for end in range(len(nums)):
             curr_prod *= nums[end]
-            while curr_prod >=k:
+            while curr_prod >=k and start<=end:
                 curr_prod/=nums[start]
                 start+=1
             count+= end-start+1
