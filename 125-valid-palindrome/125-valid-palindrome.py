@@ -14,7 +14,6 @@ class Solution(object):
                 
             while not s[end].isalnum() and end>start:
                 end-=1
-            
             if s[start].lower() !=s[end].lower():
                 return False
             start+=1
