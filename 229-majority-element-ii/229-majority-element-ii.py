@@ -13,15 +13,38 @@ class Solution(object):
         #got throgh the hashmap and check if value >n/3 if yes then add to the resulting list
         #Time O(N)
         #Space O(N) depends on the # of different elems in nums
-        hashmap = {}
+        #approach 2: Boyer-Moore:
+        #keep two counters and two candidates
+        #2 potential numbers can be > n/3
+        #only if next element is != than current candidates 
+        #decrease the counters
+         
+        
+        candidate1=None
+        candidate2=None
+        counter1=0
+        counter2=0
         result = []
         for elem in nums:
-            if elem in hashmap.keys():
-                hashmap[elem]+=1
+            if elem==candidate1:
+                counter1+=1
+            elif elem==candidate2:
+                counter2+=1
+            elif counter1==0:
+                candidate1=elem
+                counter1+=1
+            elif counter2==0:
+                candidate2=elem
+                counter2+=1
             else:
-                hashmap[elem]=1
-        
-        for k,v in hashmap.items():
-            if v > len(nums)//3:
-                result.append(k)
+                counter1-=1
+                counter2-=1
+                
+        if nums.count(candidate1)>len(nums)//3:
+            result.append(candidate1)
+        if nums.count(candidate2)>len(nums)//3:
+            result.append(candidate2)
         return result
+            
+                
+            
