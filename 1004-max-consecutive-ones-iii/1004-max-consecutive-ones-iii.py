@@ -5,20 +5,21 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
-        curr_zero = 0
-        max_ones = 0
         start = 0
-        end=0
-        while end < len(nums): # while our window is in bounds
-           
-            if nums[end]== 0:  # add the right most element into our window
-                curr_zero+=1
-            while curr_zero==k+1:
-                if nums[start] == 0:    
-                    curr_zero-=1
+        max_ones = 0
+        for end in range(len(nums)):
+            if nums[end]==0:
+                k-=1
+            while k<0:
+                if nums[start]==0:
+                    k+=1
                 start+=1
+                        
+                
             max_ones = max(max_ones,end-start+1)
-            end+=1
         return max_ones
+                
+        #[1,1,1,0,0,0,1,1,1,1,0] k=2
+        #                     ^  
+        #         s 
         
