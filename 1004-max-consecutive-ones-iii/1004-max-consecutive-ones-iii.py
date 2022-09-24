@@ -11,15 +11,12 @@ class Solution(object):
             if nums[end]==0:
                 k-=1
             while k<0:
+                
                 if nums[start]==0:
                     k+=1
                 start+=1
-                        
                 
             max_ones = max(max_ones,end-start+1)
         return max_ones
                 
-        #[1,1,1,0,0,0,1,1,1,1,0] k=2
-        #                     ^  
-        #         s 
-        
+  
