@@ -1,13 +1,16 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
-        dict_nums = {}
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        seen = {}
         for i in range(len(nums)):
             complement = target - nums[i]
-                
-            if complement in dict_nums:
-                    return [i, dict_nums[complement]]
-            dict_nums[nums[i]] = i 
-                    
-                    
+            if complement not in seen:
+                seen[nums[i]] = i
+            else:
+                return [i, seen[complement]]
+        
         
