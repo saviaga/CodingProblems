@@ -7,11 +7,9 @@ class Solution(object):
         dict_anagrams = defaultdict(list)
         
         for elem in strs:
-            key = [0] * 26
-            for ch in elem:
-                key[ord(ch)-ord('a')]+=1
-            dict_anagrams[tuple(key)].append(elem)
-        
+            key = sorted(elem)
+            dict_anagrams["".join(key)].append(elem)
+    
         return dict_anagrams.values()
             
         
