@@ -5,16 +5,16 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        
-        rasom_dic = Counter(ransomNote)
-        magazine_dic = Counter(magazine)
-        
-        for ch in ransomNote:
-            if ch in magazine_dic:
-                magazine_dic[ch]-=1
-                if magazine_dic[ch]==0:
-                    del  magazine_dic[ch]
+        letters = {}
+        for elem in magazine:
+            if elem in letters.keys():
+                letters[elem]+=1
             else:
+                letters[elem]=1
+        for elem in ransomNote:
+            if elem not in letters.keys() or letters[elem]<=0:
                 return False
+            else:
+                letters[elem]-=1
         return True
-        
+                
