@@ -5,9 +5,10 @@ class Solution(object):
         :rtype: int
         """
         max_wealth = 0
-        for row in range(len(accounts)):
-            customer_wealth = 0
-            for col in range(len(accounts[0])):
-                customer_wealth += accounts[row][col]
-            max_wealth=max(max_wealth,customer_wealth)
+        for row in accounts:
+            wealth = 0
+            for col in row:
+                wealth+=col
+            max_wealth = max(max_wealth,wealth)
         return max_wealth
+            
