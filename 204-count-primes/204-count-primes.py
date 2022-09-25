@@ -15,7 +15,7 @@ class Solution(object):
         
         # Initialize numbers[0] and numbers[1] as False because 0 and 1 are not prime.
         # Initialze numbers[2] through numbers[n-1] as True because we assume each number
-        # is prime until we find a prime number (p) that is a divisor of the number
+        # is prime until we find a prime number (e) that is a divisor of the number
         for e in range(2,  int(sqrt(n)) + 1):
             if numbers[e]==True:
             #Set all multiples of p to false false because they are not prime
