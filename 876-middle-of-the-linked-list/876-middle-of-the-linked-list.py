@@ -9,13 +9,11 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        lenght = 0
-        arr = []
-        while head:
-            arr.append(head) 
-            head = head.next
-            
-
-        return arr[len(arr)/2]
-            
+        middle = head
+        end = head
+        
+        while end and end.next:
+            end = end.next.next
+            middle = middle.next
+        return middle
         
