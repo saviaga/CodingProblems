@@ -13,19 +13,36 @@ class Solution(object):
         #Time O(N+M), we need to loop through both arrays
         #Space O(m) number of distinct characters in nums1 + space of res
         
-        #Approach2: Use Two pointers and check coincidences(do not care about duplicates)
+        #Approach2: Sort and Use Two pointers and check coincidences(do not care about duplicates)
         #sort arrays
         #Store in res
         #Time O(nlogn)
         #Space O(1) constant with variables + space of res
         
-        mapping = Counter(nums1)
-        res = []
-        for elem in nums2:
-            if elem in mapping and mapping[elem]>0:
-                res.append(elem)
-                mapping[elem]-=1
+        nums1.sort()
+        nums2.sort()
+        
+        idx1=0
+        idx2=0
+        res= []
+        
+        while idx1<len(nums1) and idx2<len(nums2):
+            
+            #move until they are equal
+            if nums1[idx1] <nums2[idx2]:
+                idx1+=1
+                
+            elif nums1[idx1] >nums2[idx2]:
+                idx2+=1
+               
+            elif nums1[idx1]==nums2[idx2]:
+                res.append(nums1[idx1])
+                idx1+=1
+                idx2+=1
         return res
+            
+            
+                
                 
                 
                 
