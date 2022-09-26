@@ -4,20 +4,16 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
+        #memoization bottom up
+        if n <2:
+                return n
+        fibo = {0:0,1:1}       
+              
+        for i in range(2,n+1):
+                fibo[i] = fibo[i-1]+fibo[i-2]
         
-        def fibHelp(n):
-            if n <2:
-                return n 
-            
-        
-            
-            self.fibo[n] = fibHelp(n-1) + fibHelp(n-2)
-            return self.fibo[n]
-       
-        self.fibo = {0:0,1:1}
-
-        return fibHelp(n)
-
+        return fibo[n]
+                
         
         
             
