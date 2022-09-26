@@ -9,8 +9,7 @@ class Solution(object):
             if n <2:
                 return n 
             
-            if n in self.fibo:
-                return self.fibo[n]
+        
             
             self.fibo[n] = fibHelp(n-1) + fibHelp(n-2)
             return self.fibo[n]
