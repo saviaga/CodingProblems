@@ -8,7 +8,7 @@ class Solution(object):
             if start>=end:
                 return
             
-            elif start<end:
+            else:
                 s[start],s[end] = s[end],s[start]
            
                 reverseStringHelper(start+1,end-1)
