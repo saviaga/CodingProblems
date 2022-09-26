@@ -4,12 +4,21 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        fibo = {0:0,1:1}
-        if n<=1:
-            return n
-        else:
+        
+        def fibHelp(n):
+            if n <2:
+                return n 
             
-            return self.fib(n-1) + self.fib(n-2)
+            if n in self.fibo:
+                return self.fibo[n]
+            
+            self.fibo[n] = fibHelp(n-1) + fibHelp(n-2)
+            return self.fibo[n]
+       
+        self.fibo = {0:0,1:1}
+
+        return fibHelp(n)
+
         
         
             
