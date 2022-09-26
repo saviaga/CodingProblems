@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: None Do not return anything, modify s in-place instead.
         """
         def reverseStringHelper(start,end):
-            if start==end:
+            if start>=end:
                 return
             
             elif start<end:
