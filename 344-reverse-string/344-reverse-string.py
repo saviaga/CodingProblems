@@ -5,9 +5,10 @@ class Solution(object):
         :rtype: None Do not return anything, modify s in-place instead.
         """
         def reverseStringHelper(start,end):
+            if start==end:
+                return
             
-            
-            if start<end:
+            elif start<end:
                 s[start],s[end] = s[end],s[start]
            
                 reverseStringHelper(start+1,end-1)
