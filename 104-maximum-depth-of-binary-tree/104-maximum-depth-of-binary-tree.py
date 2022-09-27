@@ -11,22 +11,20 @@ class Solution(object):
         :rtype: int
         """
         
-        
+     
+            
         if root == None:
-            return 0
+                return 0
+            
+            
+        left = self.maxDepth(root.left)
+        right = self.maxDepth(root.right)
+        return 1 + max(left,right)
+            
         
-        queue = collections.deque([(root,1)])
-        max_depth = 0
         
-        while queue:
-           
-            for _ in range(len(queue)):
-                
-                curr, depth = queue.popleft()
-                max_depth = max(max_depth,depth)
-                if curr.left:
-                    queue.append([curr.left,depth+1])
-                if curr.right:
-                    queue.append([curr.right,depth+1])
-        return max_depth
+        
+
+        return maxDepthHelp(root)
+
         
