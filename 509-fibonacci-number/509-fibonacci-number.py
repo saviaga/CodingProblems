@@ -13,9 +13,9 @@ class Solution(object):
               
         for i in range(2,n+1):
                 current = first+second
-                temp = second
-                second = current
-                first = temp
+                
+                first, second = second, current
+               
         
         return current
                 
