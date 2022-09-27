@@ -17,7 +17,6 @@ class Solution(object):
             return dp[i]
     
         dp = [0]*(n+1)
-        dp[0]=0
-        dp[1]=1
+       
         return climbStairsHelper(n,dp)
        
