@@ -13,14 +13,14 @@ class Solution(object):
         if head ==None or head.next == None:
             return head
         
-       
+        curr = head
         prev = None
-        while head:
+        while curr:
             
-            next_node = head.next
-            head.next = prev
-            prev = head
-            head = next_node
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
            
         return prev
         
