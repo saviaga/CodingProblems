@@ -7,12 +7,17 @@ class Solution(object):
         #memoization bottom up
         if n <2:
                 return n
-        fibo = {0:0,1:1}       
+        first = 0
+        second = 1
+        current = 0
               
         for i in range(2,n+1):
-                fibo[i] = fibo[i-1]+fibo[i-2]
+                current = first+second
+                temp = second
+                second = current
+                first = temp
         
-        return fibo[n]
+        return current
                 
         
         
