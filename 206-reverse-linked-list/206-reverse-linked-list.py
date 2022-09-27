@@ -11,11 +11,10 @@ class Solution:
             return head
         
         
-        first_node = head
-        second_node = head.next
-        new_head = self.reverseList(first_node.next)
-        second_node.next = first_node
-        first_node.next = None
+        
+        new_head = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
         
         
         return new_head 
