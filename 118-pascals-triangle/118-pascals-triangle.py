@@ -4,25 +4,22 @@ class Solution(object):
         :type numRows: int
         :rtype: List[List[int]]
         """
-        def generatehelp(cdp, i):
+        
           
-            if i==numRows:
-                return dp
-            
-            inner_list = []
-            past_row = cdp[-1]
-            for j in range(0,len(past_row)-1):
+        if numRows==1:return [[1]]
                 
-                inner_list.append(past_row[j]+past_row[j+1])
+            
+        inner_list = []
+        past_row = self.generate(numRows-1)
+        
+        for j in range(0,len(past_row[-1])-1):
+                
+                inner_list.append(past_row[-1][j]+past_row[-1][j+1])
 
-            full_row = [1] + inner_list + [1]
-          
-            cdp.append(full_row)
-            return generatehelp(cdp,i+1)
-        
-        
-        dp = [[1]]
-        generatehelp(dp,1)
-        return dp
+        full_row = [1] + inner_list + [1]
+        past_row.append(full_row) 
+       
+      
+        return past_row
         
         
