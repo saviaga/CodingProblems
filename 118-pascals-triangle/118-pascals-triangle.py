@@ -1,20 +1,25 @@
-class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
-        if numRows <= 0:
-             return []
-        else:
-            res = [[1]]
-
-        new_elem = []
-        for i in range(numRows-1):         
-            curr_elem = res[i]
-            new_elem = []
-            new_elem.append(curr_elem[0])
-            for e in range(1,len(curr_elem)):
-                new_elem.append(curr_elem[e]+curr_elem[e-1])
-                e+=1
-            new_elem.append(curr_elem[-1])
-            res.append(new_elem)                 
-        return res
-     
-     
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        def generatehelp(i):
+          
+            if i==numRows:
+                return 
+            
+            inner_list = []
+            past_row= self.dp[-1]
+            for j in range(0,len(past_row)-1):                
+                inner_list.append(past_row[j]+past_row[j+1])
+            full_row = [1] + inner_list + [1]
+            self.dp.append(full_row)
+            return generatehelp(i+1)
+        
+        
+        self.dp= [[1]]
+        generatehelp(1)
+        return self.dp
+        
+        
