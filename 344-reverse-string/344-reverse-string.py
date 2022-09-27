@@ -4,18 +4,14 @@ class Solution(object):
         :type s: List[str]
         :rtype: None Do not return anything, modify s in-place instead.
         """
-        def reverseStringHelper(start,end):
-            if start==end:
+        
+        def reverseStringHelper(start,end,s):
+            if start>end:
                 return
-            
-            elif start<end:
+            else:
                 s[start],s[end] = s[end],s[start]
-           
-                reverseStringHelper(start+1,end-1)
-
+                return reverseStringHelper(start+1,end-1,s)
             
+                
             
-        start = 0
-        end= len(s)-1
-        reverseStringHelper(start,end)
-        return s
+        return reverseStringHelper(0,len(s)-1,s)
