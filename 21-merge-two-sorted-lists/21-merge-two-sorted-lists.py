@@ -17,30 +17,23 @@ class Solution(object):
         new_head = ListNode()
         curr_node = new_head
             
-        head1 = list1
-        head2 = list2
-        while head1 and head2:
-            if head1.val < head2.val:
-                curr_node.next = head1
-                curr_node = curr_node.next
-                head1 = head1.next
+
+        while list1 and list2:
+            if list1.val < list2.val:
+                curr_node.next = list1
+                
+                list1 = list1.next
             else:
-                curr_node.next = head2
-                curr_node = curr_node.next
-                head2 = head2.next
+                curr_node.next = list2
+                list2 = list2.next
+            curr_node = curr_node.next
         
-        while head1:
-            
-            curr_node.next = head1
-            curr_node = curr_node.next
-            head1 = head1.next
-        while head2:
+        if list1: 
+            curr_node.next = list1
+          
+        elif list2:
+            curr_node.next = list2
            
-            curr_node.next = head2
-            curr_node = curr_node.next
-            head2 = head2.next
-            
-            
                
         return new_head.next
                 
