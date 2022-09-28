@@ -28,12 +28,9 @@ class Solution(object):
                 list2 = list2.next
             curr_node = curr_node.next
         
-        if list1: 
-            curr_node.next = list1
+        curr_node.next =  list1 if list1 else list2
           
-        elif list2:
-            curr_node.next = list2
-           
+      
                
         return new_head.next
                 
