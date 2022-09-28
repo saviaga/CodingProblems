@@ -4,15 +4,12 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        dict_anagrams = defaultdict(list)
-        
+        groups = collections.defaultdict(list)
         for elem in strs:
-            key = [0]*26
-            for ch in elem:
-                key[ord(ch)-ord('a')]+=1
-            dict_anagrams[tuple(key)].append(elem)
-    
-        return dict_anagrams.values()
-            
-        
-        
+            key = sorted(elem)
+            groups[tuple(key)].append(elem)
+        res = []
+
+        for key,value in groups.items():
+            res.append(value)
+        return res
