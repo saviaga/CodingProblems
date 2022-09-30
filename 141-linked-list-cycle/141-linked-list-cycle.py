@@ -30,11 +30,14 @@ class Solution(object):
         fast = head.next
         
         while slow!=fast:
-            if fast is None or fast.next is None:
+            if slow == fast:
+                return True
+            if slow.next!=None and fast.next!=None and fast.next.next!=None:
+                slow = slow.next
+                fast = fast.next.next
+         
+            else:
                 return False
-            slow = slow.next
-            fast = fast.next.next
-            
         return True
         
         
