@@ -10,21 +10,33 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        if head is None:
+        #U: There is no null, hence that is a cycle
+        # if we arrive again to the same element there is a cyle
+        #If we find a null there is no cycle
+        #if empty there is a cycle
+        
+        #M: Fast and Low Pointer
+        #if they at some point meet, there is a cycle
+        #if at some point we reach null with either pointer there isn't a cycle
+        
+        #P: While both pointers are different continue moving pointers, or while both pointers are different of null
+        # if pointers are equal return true
+        #if any pointer is null return false
+        
+        if not head: 
             return False
+        
         slow = head
-        fast = head
+        fast = head.next
         
-        
-        while fast!=None and fast.next!=None:
+        while slow!=fast:
+            if fast is None or fast.next is None:
+                return False
             slow = slow.next
             fast = fast.next.next
-            if slow==fast:
-                return True
-        return False
-    
-    #space complexity O(1)
-    #Time complexity O(N+M) ~O(N) is the number of nodes
+            
+        return True
+        
         
         
         
