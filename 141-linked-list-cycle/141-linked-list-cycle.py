@@ -32,7 +32,7 @@ class Solution(object):
         while slow!=fast:
             if slow == fast:
                 return True
-            if slow.next!=None and fast.next!=None and fast.next.next!=None:
+            if fast!=None and fast.next!=None:
                 slow = slow.next
                 fast = fast.next.next
          
