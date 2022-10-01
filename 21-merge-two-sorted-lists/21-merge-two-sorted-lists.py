@@ -10,25 +10,28 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        if list1==None:
-            return list2
-        
-        if list2==None:
-            return list1
-            
+        if list1 == None and list2==None:
+            return 
+        curr = ListNode()
+        new_head = curr
           
-        head = ListNode()
-      
-        if list1.val < list2.val:
-                head = list1
+        while list1 and list2:
+            if list1.val < list2.val:
+                curr.next = list1
                 list1 = list1.next
-                
-        else:
-                head = list2
-                list2 = list2.next
-                
-        head.next = self.mergeTwoLists(list1,list2)
-        return head
+            else:
+                curr.next = list2
+                list2= list2.next
+            
+            curr = curr.next
+           
+        
+        if list1:
+            curr.next = list1
+            
+        if list2:
+            curr.next = list2
+            
+        return new_head.next
             
         
-      
