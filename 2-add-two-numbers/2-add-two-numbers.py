@@ -31,23 +31,31 @@ class Solution(object):
         
        
         
-        carry = 0
+        
+        
+        def addTwoNumbersHelper(node, v1,v2,carry_val):
+            #print(node.val,v1,v2,carry_val)
+            if not v1 and not v2 and not carry_val:
+                return
+            
+            
+            val1 = v1.val if v1 else 0
+            val2 = v2.val if v2 else 0
+            curr_suma = val1 + val2 + carry_val
+
+            node_val = curr_suma%10
+            carry_val = curr_suma//10
+            node.next = ListNode(node_val)
+            v1 = v1.next if v1 else None
+            v2 = v2.next if v2 else None
+            node =node.next
+
+            return addTwoNumbersHelper(node,v1,v2,carry_val)
+        
+        
         sum_node = ListNode()
         new_head = sum_node
-        
-        while l1 or l2 or carry:
-            val1 = l1.val if l1 else 0
-            val2 = l2.val if l2 else 0
-            curr_sum = val1 + val2 + carry
-            
-            node_val = curr_sum%10
-            carry = curr_sum//10
-            sum_node.next = ListNode(node_val)
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
-            sum_node =sum_node.next
-       
-        
+        addTwoNumbersHelper(sum_node,l1,l2,0)
         return new_head.next
             
         
