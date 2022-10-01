@@ -35,42 +35,18 @@ class Solution(object):
         sum_node = ListNode()
         new_head = sum_node
         
-        while l1 and l2: 
-            
-            curr_sum = l1.val + l2.val + carry
+        while l1 or l2 or carry:
+            val1 = l1.val if l1 else 0
+            val2 = l2.val if l2 else 0
+            curr_sum = val1 + val2 + carry
             
             node_val = curr_sum%10
             carry = curr_sum//10
             sum_node.next = ListNode(node_val)
-            l1 = l1.next
-            l2 = l2.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
             sum_node =sum_node.next
-        if carry > 0:
-            sum_node.next = ListNode(carry)
-            
-                    
-        while l1:
-            
-            curr_sum = l1.val +  carry
-            node_val = curr_sum%10
-            carry = curr_sum//10
-            sum_node.next = ListNode(node_val)
-            l1 = l1.next
-           
-            sum_node =sum_node.next
-        if carry > 0:
-            sum_node.next = ListNode(carry)
-            
-        while l2:
-            curr_sum = l2.val +  carry
-            node_val = curr_sum%10
-            carry = curr_sum//10
-            sum_node.next = ListNode(node_val)
-            l2 = l2.next
-            sum_node =sum_node.next
-        if carry > 0:
-            sum_node.next = ListNode(carry)
-
+       
         
         return new_head.next
             
