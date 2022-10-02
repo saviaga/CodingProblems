@@ -10,18 +10,27 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        dummy=ListNode(0,head)
+        new_head = head
+        if head.next ==None and n==1:
+            return None
         
-        fast = dummy 
-        slow = dummy
-        # Advances first pointer so that the gap between first and second is n nodes apart
-        for i in range(n+1): 
-            fast = fast.next
+        lenght = 0
+        curr =head
+        while curr:
+            lenght+=1
+            curr = curr.next
         
-        while fast:
-            fast = fast.next
-            slow = slow.next
+        curr=head
         
-        slow.next = slow.next.next  
-        return dummy.next
+        for _ in range((lenght-n-1)):
+            curr = curr.next
+        
+        if lenght-n ==0:
+            new_head = head.next
+        elif curr.next:
+                curr.next = curr.next.next
+        else:
+                curr.next = None
+        return new_head 
+        
         
