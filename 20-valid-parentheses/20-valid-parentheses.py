@@ -4,20 +4,17 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        dic_map = {')':'(',']':'[','}':'{'}
+        
+        dic_parenthesis = {']':'[',')':'(','}':'{'}
         
         stack = []
-        
-        
-        for elem in s:
-            if elem == '(' or elem == '[' or elem == '{':
-                stack.append(elem)
-            elif elem in dic_map:
-                if stack and stack[-1]==dic_map[elem]:
-                    stack.pop()
-                else:
-                    return False
-            
-            
-            
+        for i in range(len(s)):
+            ch = s[i]
+            if ch == '(' or ch=='{' or ch=='[':
+                stack.append(ch)
+            elif stack and stack[-1] == dic_parenthesis[ch]:
+                stack.pop()
+            else:
+                return False
         return len(stack)==0
+        
