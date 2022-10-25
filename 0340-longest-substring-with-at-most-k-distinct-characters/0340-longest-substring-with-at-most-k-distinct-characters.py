@@ -31,9 +31,9 @@ class Solution(object):
                 if dict_ch[s[start]] == 0:
                     del dict_ch[s[start]]
                 start+=1
-            
+            #check the current size, and check if it is larger
             longestsub = max(longestsub,end-start+1)
-            #else: check the current size, and check if it is larger
+            
             end+=1
             
         return longestsub 
