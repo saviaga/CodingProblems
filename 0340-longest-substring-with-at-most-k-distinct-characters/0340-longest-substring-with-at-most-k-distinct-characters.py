@@ -25,13 +25,13 @@ class Solution(object):
             else:
                 dict_ch[s[end]] = 1
             #check if the number of keys > k:
-            
+            #if this is true then reduce the size of window
             while len(dict_ch)>k:
                 dict_ch[s[start]]-=1
                 if dict_ch[s[start]] == 0:
                     del dict_ch[s[start]]
                 start+=1
-            #if this is true then reduce the size of window
+            
             longestsub = max(longestsub,end-start+1)
             #else: check the current size, and check if it is larger
             end+=1
