@@ -5,13 +5,8 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-         
+    
+    def check(self,p,q):
         if not p and not q:          
             return True
         
@@ -20,8 +15,30 @@ class Solution(object):
          
         if p.val != q.val:
             return False
+        return True
+    
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
         
-        else:
-            return self.isSameTree(p.right,q.right) and  self.isSameTree(p.left,q.left) 
+        stack = [(p,q)]
+        
+        while stack:
+            p,q = stack.pop()
+            if not self.check(p,q):
+                return False
+            if p or q: 
+                stack.append((p.left,q.left))
+                stack.append((p.right,q.right))
+            
+        return True
+        
+        
+        
+      
+        
             
         
