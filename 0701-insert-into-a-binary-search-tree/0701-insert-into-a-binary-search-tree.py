@@ -11,8 +11,8 @@ class Solution(object):
         :type val: int
         :rtype: TreeNode
         """
-        if not root:
-            return TreeNode(val)
+        
+            
         curr = root
         
         while curr:
@@ -28,5 +28,6 @@ class Solution(object):
                 else:
                     curr.right = TreeNode(val)
                     return root
+        return TreeNode(val)
         
         
