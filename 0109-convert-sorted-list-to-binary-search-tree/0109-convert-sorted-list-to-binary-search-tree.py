@@ -19,17 +19,23 @@ class Solution(object):
         :rtype: Optional[TreeNode]
         """
         
-        node = head
-        array = []
-        while node:
-            array.append(node.val)
-            node = node.next
-        def arrayToBST(array, l, r):
-            if l > r:
+        def bst(head):
+            if not head:
                 return
-            m = (l + r) // 2
-            BST = TreeNode(array[m])
-            BST.left = arrayToBST(array, l, m - 1)
-            BST.right = arrayToBST(array, m + 1, r)
-            return BST
-        return arrayToBST(array, 0, len(array) - 1)
+            elif not head.next:
+                return TreeNode(head.val)
+                
+            slow=head
+            fast=head.next.next
+            while fast and fast.next:
+                slow=slow.next
+                fast=fast.next.next
+            tmp=slow.next
+            slow.next=None
+            root=TreeNode(tmp.val)
+            root.left=bst(head)
+            root.right=bst(tmp.next)
+            return root
+            
+            
+        return bst(head)
