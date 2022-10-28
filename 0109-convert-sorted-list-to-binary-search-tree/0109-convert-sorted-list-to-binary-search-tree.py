@@ -11,15 +11,7 @@
 #         self.right = right
 class Solution(object):
     
-    def findsize(self,head):
-          
-        end =0
-        curr = head
-        
-        while curr:
-            curr = curr.next
-            end+=1
-        return end
+
         
     def sortedListToBST(self, head):
         """
@@ -27,25 +19,17 @@ class Solution(object):
         :rtype: Optional[TreeNode]
         """
         
-        def helper(l,r,head):
+        node = head
+        array = []
+        while node:
+            array.append(node.val)
+            node = node.next
+        def arrayToBST(array, l, r):
             if l > r:
-                return None
-            mid = (l + r) //2
-         
-            counter = 0
-            node = head
-            #arrive to mid
-            while counter<mid:
-                node = node.next
-                counter+=1
-               
- 
-            root = TreeNode(node.val) 
-          
-            root.left = helper(l,mid-1,head)
-            root.right = helper(mid+1,r,head)
-            return root
-        
-       
-        return helper(0, self.findsize(head)-1,head)
-        
+                return
+            m = (l + r) // 2
+            BST = TreeNode(array[m])
+            BST.left = arrayToBST(array, l, m - 1)
+            BST.right = arrayToBST(array, m + 1, r)
+            return BST
+        return arrayToBST(array, 0, len(array) - 1)
