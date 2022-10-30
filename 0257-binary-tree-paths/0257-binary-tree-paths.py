@@ -17,6 +17,7 @@ class Solution(object):
             path+=str(root.val)
             if root.left == None and root.right == None:
                 paths.append(path)
+                return
             else:
                 path+='->'
                 construct_paths(root.left,path)
