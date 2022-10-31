@@ -17,10 +17,9 @@ class Solution(object):
             curr,path = stack.pop()
             if not curr.left and not curr.right:
                 paths.append(path)
-            else:
-                if curr.left:
+            if curr.left:
                     stack.append((curr.left,path + '->'+str(curr.left.val)) )
-                if curr.right:
+            if curr.right:
                     stack.append((curr.right,path + '->'+str(curr.right.val)) )
         return paths
             
