@@ -11,22 +11,20 @@ class Solution(object):
         :rtype: List[str]
         """
         
-        def construct_paths(root, path):
-            if root == None:
-                return
-            path+=str(root.val)
-            if root.left == None and root.right == None:
-                paths.append(path)
-                return
-            else:
-                path+='->'
-                construct_paths(root.left,path)
-                construct_paths(root.right,path)
-        
-    
-    
+        stack = [(root,str(root.val))]
         paths = []
-        construct_paths(root,'')
+        while stack:
+            curr,path = stack.pop()
+            if not curr.left and not curr.right:
+                paths.append(path)
+            else:
+                if curr.left:
+                    stack.append((curr.left,path + '->'+str(curr.left.val)) )
+                if curr.right:
+                    stack.append((curr.right,path + '->'+str(curr.right.val)) )
         return paths
+            
+                
+        
     
         
